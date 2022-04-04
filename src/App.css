@@ -38,6 +38,8 @@
 }
 
 .user {
+  top: 10%;
+  left: 10%;
   text-align: justify;
   position: absolute;
   height: 10px;
