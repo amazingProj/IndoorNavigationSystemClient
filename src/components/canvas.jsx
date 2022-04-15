@@ -29,12 +29,12 @@ const Canvas = () => {
 
       useEffect(() => {
         let width = window.innerHeight * 0.8;
-        let height = window.innerWidth * 0.8;
+        let height = window.innerWidth * 0.9;
         let frac = Math.trunc(height / 21);
       
           for (let i = 1; i < 22; ++i){
             drawLine({ x: i * frac, y: 0, x1: i * frac, y1: height });
-            ctx.font = "15px Arial";    
+            ctx.font = "12px Arial";    
              
             ctx.textAlign = "right";      
             ctx.fillText(i, i * frac - 2,Math.trunc(width * 0.05));
