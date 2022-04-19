@@ -16,7 +16,8 @@ function App() {
     const socket = socketIOClient(ENDPOINT);
     socket.on("94:B9:7E:FA:92:14", data => {
       let wifiInformation = JSON.parse(JSON.stringify(data));
-      setResponse(data);
+      //setResponse(data);
+      console.log(wifiInformation)
       userRef.current.style.left = basePercentLeft + wifiInformation["x"] * 4 + "%";
       userRef.current.style.top = basePercentTop + wifiInformation["y"] * 4 + "%";
     });

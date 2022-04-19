@@ -19,7 +19,6 @@ const Navbar = () => {
           <li className='hover:bg-zinc-300'><Link to="home" smooth={true} duration={500}>קומה 3</Link></li>
           <li className='hover:bg-zinc-300'><Link to="about" smooth={true} offset={-200} duration={500}>קומה 4</Link></li>
           <li className='hover:bg-zinc-300'><Link to="support" smooth={true} offset={-50} duration={500}>קומה 5</Link></li>
-          <li className='hover:bg-zinc-300'><Link to="platforms" smooth={true} offset={-100} duration={500}>נהל משתמשים</Link></li>
           <li className='hover:bg-zinc-300'><Link to="pricing" smooth={true} offset={-50} duration={500}>צ'אט</Link></li>
           </ul>
         </div>
@@ -33,7 +32,6 @@ const Navbar = () => {
           <li className='hover:bg-zinc-300 border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="home" smooth={true} duration={500}>קומה 3</Link></li>
           <li className='hover:bg-zinc-300 border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="about" smooth={true} offset={-200} duration={500}>קומה 4</Link></li>
           <li className='hover:bg-zinc-300 border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="support" smooth={true} offset={-50} duration={500}>קומה 5</Link></li>
-          <li className='hover:bg-zinc-300 border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="platforms" smooth={true} offset={-100} duration={500}>נהל משתמשים</Link></li>
           <li className='hover:bg-zinc-300 border-b-2 border-zinc-300 w-full'><Link onClick={handleClose} to="pricing" smooth={true} offset={-50} duration={500}>צ'אט</Link></li>
 
         
