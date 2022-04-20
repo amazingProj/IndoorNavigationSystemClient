@@ -59,77 +59,31 @@ const FloorThree = () => {
       let fracH = Math.trunc(height / 34);
       let fracW = Math.trunc(width / 17);
       let offsetX = 4 * fracH;
-      const r1Info = { x: 5 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r1Info, { backgroundColor: '#cd8500' });
-      const r2Info = { x: 6 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r2Info, { backgroundColor: '#cd8500' });
-      const r3Info = { x: 7 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r3Info, { backgroundColor: '#cd8500' });
-      const r4Info = { x: 4 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r4Info, { backgroundColor: '#cd8500' });
-      const rr1Info = { x: 3 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(rr1Info, { backgroundColor: '#cd8500' });
-      const rr2Info = { x: 2 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(rr2Info, { backgroundColor: '#cd8500' });
 
-      const r5Info = { x: 10 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r5Info, { backgroundColor: '#cd8500' });
-      const r6Info = { x: 11 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r6Info, { backgroundColor: '#cd8500' });
-      const r7Info = { x: 12 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r7Info, { backgroundColor: '#cd8500' });
-      const r8Info = { x: 13 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r8Info, { backgroundColor: '#cd8500' });
-      const r9Info = { x: 14 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r9Info, { backgroundColor: '#cd8500' });
-      const r10Info = { x: 15 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r10Info, { backgroundColor: '#cd8500' });
 
-      const r11Info = { x: 2 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r11Info, { backgroundColor: '#cd8500' });
-      const r12Info = { x: 3 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r12Info, { backgroundColor: '#cd8500' });
-      const r13Info = { x: 4 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r13Info, { backgroundColor: '#cd8500' });
-      const r14Info = { x: 5 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r14Info, { backgroundColor: '#cd8500' });
-      const r15Info = { x: 6 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r15Info, { backgroundColor: '#cd8500' });
-      const rr3Info = { x: 7 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(rr3Info, { backgroundColor: '#cd8500' });
-
-      const r16Info = { x: 10 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r16Info, { backgroundColor: '#cd8500' });
-      const r17Info = { x: 11 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r17Info, { backgroundColor: '#cd8500' });
-      const r18Info = { x: 12 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r18Info, { backgroundColor: '#cd8500' });
-      const r19Info = { x: 13 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r19Info, { backgroundColor: '#cd8500' });
-      const r20Info = { x: 14 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r20Info, { backgroundColor: '#cd8500' });
       let colorBorder = {color: 'black', width: 5};
-      drawLine({x: 8.8 * fracH, y: 0, x1: 8.8 * fracH, y1: 8.8 * fracW }, {color: 'black', width: 3})
-      drawLine({x: 0, y: 8.8 * fracW, x1: 2 * fracH, y1: 8.8 * fracW }, colorBorder)
-      drawLine({x: 3.6 * fracH, y: 8.8 * fracW, x1: 8.8 * fracH, y1: 8.8 * fracW }, colorBorder)
+      drawLine({x: 9.5 * fracH, y: 0, x1: 9.5 * fracH, y1: 7.1 * fracW }, {color: 'black', width: 3})
+      drawLine({x: 0, y: 7.1 * fracW, x1: 2 * fracH, y1: 7.1 * fracW }, colorBorder)
+      drawLine({x: 3.6 * fracH, y: 7.1 * fracW, x1: 9.5 * fracH, y1: 7.1 * fracW }, colorBorder)
       ctx.font = "22px Arial";
       ctx.fillStyle = "#00000F";
       ctx.textAlign = "right";      
-      ctx.fillText("כיתה 460", 5 * fracH + offsetX, 8 * fracW);
+      ctx.fillText("כיתה 325", 5 * fracH + offsetX, 8 * fracW);
 
       drawLine({x: 0 * fracH, y: 1 * fracW, x1: 0, y1: 8.8 * fracW }, colorBorder)
       drawLine({x: 0.5 * fracH, y: 0, x1: 16.5 * fracH, y1: 0 }, colorBorder)
       drawLine({x: 0 * fracH, y: 1 * fracW, x1: 0, y1: 8.8 * fracW }, colorBorder)
       drawLine({x: 0.5 * fracH, y: 0, x1: 0.5 * fracH, y1: 1 * fracW }, colorBorder)
       drawLine({x: 0.5 * fracH, y: 1 * fracW, x1: 0, y1: 1 * fracW }, colorBorder)
-      drawLine({x: 16.5 * fracH, y: 0, x1: 16.5 * fracH, y1: 8.8 * fracW }, colorBorder)
-      // class 440 near door
-      drawLine({x: 8.8 * fracH, y: 8.8 * fracW, x1: 10 * fracH, y1: 8.8 * fracW }, colorBorder)
-      drawLine({x: 11.6 * fracH, y: 8.8 * fracW, x1: 16.6 * fracH, y1: 8.8 * fracW }, colorBorder)
-      ctx.font = "22px Arial";
-      ctx.fillStyle = "#00000F";
-      ctx.textAlign = "right";      
-      ctx.fillText("כיתה 440", 14 * fracH + offsetX, 8 * fracW);
+      drawLine({x: 16.5 * fracH, y: 0, x1: 16.5 * fracH, y1: 7.1 * fracW }, colorBorder)
+      drawLine({x: 16.5 * fracH, y: 7.1 * fracW, x1: 20 * fracH, y1: 7.1 * fracW }, colorBorder)
+      drawLine({x: 21.8 * fracH, y: 7.1 * fracW, x1: 24 * fracH, y1: 7.1 * fracW }, colorBorder)
+      
+
+
+      drawLine({x: 9.5 * fracH, y: 6 * fracW, x1: 11.5 * fracH, y1: 6 * fracW }, {color: 'black', width: 3})
+      drawLine({x: 13.5 * fracH, y: 6 * fracW, x1: 16.5 * fracH, y1: 6 * fracW }, {color: 'black', width: 3})
+      ctx.fillText("כיתה 302", 14 * fracH + offsetX, 8 * fracW);
 
       // left-down
       drawLine({x: 0, y: 10.8 * fracW, x1: 0, y1: 17.5 * fracW }, colorBorder)
@@ -163,12 +117,6 @@ const FloorThree = () => {
       ctx.textAlign = "right"; 
       ctx.fillText("מדרגות", 31.3 * fracH , 10.5 * fracW);
 
-      drawLine({x: 16.5 * fracH, y: 8.8 * fracW, x1: 21.5 * fracH, y1: 8.8 * fracW }, colorBorder)
-      drawLine({x: 21.5 * fracH, y: 8.8 * fracW, x1: 21.5 * fracH, y1: 5 * fracW }, colorBorder)
-      drawLine({x: 21.5 * fracH, y: 4 * fracW, x1: 21.5 * fracH, y1: 2.5 * fracW }, colorBorder)
-      drawLine({x: 21.5 * fracH, y: 2.5 * fracW, x1: 22.5 * fracH, y1: 2.5 * fracW }, colorBorder)
-      drawLine({x: 22.5 * fracH, y: 2.5 * fracW, x1: 22.5 * fracH, y1: 8.8 * fracW }, colorBorder) 
-      drawLine({x: 22.5 * fracH, y: 8.8 * fracW, x1: 24 * fracH, y1: 8.8 * fracW }, colorBorder)   
       drawLine({x: 15.2 * fracH, y: 10.8 * fracW, x1: 16.5 * fracH, y1: 10.8 * fracW }, colorBorder)
       let insideWallsTheme = {color: 'black', width: 3}
       drawLine({x: 16 * fracH, y: 10.8 * fracW, x1: 16 * fracH, y1: 16.5 * fracW }, insideWallsTheme)
@@ -209,24 +157,13 @@ const FloorThree = () => {
       ctx.arc((28.7) * fracH, 11 * fracW, 1 * fracW,  6 * Math.PI / 4,  2 * Math.PI, false);
       ctx.stroke();
       drawLine({x: 24 * fracH, y: 10.8 * fracW, x1: 24.4 * fracH, y1: 10.8 * fracW }, {color: 'black', width: 2})
-    
-      // right - top
-      drawLine({x: 16.5 * fracH, y: 3.5 * fracW, x1: 21.5 * fracH, y1: 3.5 * fracW }, {color: 'black', width: 2})
-      drawLine({x: 16.5 * fracH, y: 5.5 * fracW, x1: 21.5 * fracH, y1: 5.5 * fracW }, {color: 'black', width: 2})
-      ctx.fillText("מטבחון", 25 * fracH , 5 * fracW);
-
-      ctx.fillText("חדרי מרצים", 25 * fracH , 7 * fracW);
-      ctx.fillText("מעבדה", 29 * fracH , 7 * fracW);
-      ctx.fillText("חדרי מרצים", 26 * fracH , 2 * fracW);
 
       // right-top
       drawLine({x: 16.5 * fracH, y: 0, x1: 24 * fracH, y1: 0 }, colorBorder)
       // right-top-down
       drawLine({x: 24 * fracH, y: 0, x1: 24 * fracH, y1: 8.8 * fracW }, colorBorder)
 
-      // inner line right - top
-      drawLine({x: 22.5 * fracH, y: 3 * fracW, x1: 24 * fracH, y1: 3 * fracW }, {color: 'black', width: 2})
-
+      
       // right-down
       drawLine({x: 15.2 * fracH, y: 17.4 * fracW, x1: 24 * fracH, y1: 17.4 * fracW }, colorBorder)
       // right-down- to top
