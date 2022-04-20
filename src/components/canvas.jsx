@@ -59,6 +59,7 @@ const Canvas = () => {
       let fracH = Math.trunc(height / 34);
       let fracW = Math.trunc(width / 17);
       let offsetX = 4 * fracH;
+      let offsetY = 0.01 * window.innerHeight;
       const r1Info = { x: 5 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
       drawFillRect(r1Info, { backgroundColor: '#cd8500' });
       const r2Info = { x: 6 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
@@ -180,35 +181,35 @@ const Canvas = () => {
       ctx.beginPath();
       ctx.lineWidth = 2;
       ctx.fillStyle = "#00000F";
-      ctx.arc(5.4 * fracH, 9 * fracW, 1 * fracW, 3 * Math.PI/4, Math.PI, false);
+      ctx.arc(5.4 * fracH, 8.8 * fracW + offsetY, 1 * fracW, 3 * Math.PI/4, Math.PI, false);
       ctx.stroke();
-      drawLine({x: -0.25 * fracH, y: 10.8 * fracW, x1: 0 * fracH, y1: 10.8 * fracW }, {color: 'black', width: 2})
+      drawLine({x: -0.45 * fracH, y: 10.8 * fracW, x1: 0 * fracH, y1: 10.8 * fracW }, {color: 'black', width: 2})
       
 
       // left-down side door
       ctx.beginPath();
       ctx.lineWidth = 2;
       ctx.fillStyle = "#00000F";
-      ctx.arc(5.4 * fracH, 10.5 * fracW, 1 * fracW, 3.5 * Math.PI/ 4, 5 * Math.PI / 4, false);
+      ctx.arc(5.4 * fracH, 10.3 * fracW + offsetY, 1 * fracW, 3.5 * Math.PI/ 4, 5 * Math.PI / 4, false);
       ctx.stroke();
-      drawLine({x: -0.25 * fracH, y: 8.8 * fracW, x1: 0 * fracH, y1: 8.8 * fracW }, {color: 'black', width: 2})
+      drawLine({x: -0.45 * fracH, y: 8.8 * fracW, x1: 0 * fracH, y1: 8.8 * fracW }, {color: 'black', width: 2})
       
 
       // right-top side door
       ctx.beginPath();
       ctx.lineWidth = 2;
       ctx.fillStyle = "#00000F";
-      ctx.arc((28.7) * fracH, 9 * fracW, 1 * fracW, 0, Math.PI / 2, false);
+      ctx.arc((28.7) * fracH, 8.8 * fracW + offsetY, 1 * fracW, 0, Math.PI / 2, false);
       ctx.stroke();
-      drawLine({x: 24 * fracH, y: 8.8 * fracW, x1: 24.4 * fracH, y1: 8.8 * fracW }, {color: 'black', width: 2})
+      drawLine({x: 24 * fracH, y: 8.8 * fracW, x1: 24.6 * fracH, y1: 8.8 * fracW }, {color: 'black', width: 2})
       
       // right-down side door
       ctx.beginPath();
       ctx.lineWidth = 2;
       ctx.fillStyle = "#00000F";
-      ctx.arc((28.7) * fracH, 11 * fracW, 1 * fracW,  6 * Math.PI / 4,  2 * Math.PI, false);
+      ctx.arc((28.7) * fracH, 10.8 * fracW + offsetY, 1 * fracW,  6 * Math.PI / 4,  2 * Math.PI, false);
       ctx.stroke();
-      drawLine({x: 24 * fracH, y: 10.8 * fracW, x1: 24.4 * fracH, y1: 10.8 * fracW }, {color: 'black', width: 2})
+      drawLine({x: 24 * fracH, y: 10.8 * fracW, x1: 24.6 * fracH, y1: 10.8 * fracW }, {color: 'black', width: 2})
     
       // right - top
       drawLine({x: 16.5 * fracH, y: 3.5 * fracW, x1: 21.5 * fracH, y1: 3.5 * fracW }, {color: 'black', width: 2})
