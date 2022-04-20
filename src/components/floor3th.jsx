@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import './style/canvas.css';
 
-const Canvas = () => {
+const FloorThree = () => {
     const canvas = useRef();
     let ctx = null;
 
@@ -280,7 +280,7 @@ const Canvas = () => {
       drawLine({x: 28.6 * fracH, y: 8.2 * fracW, x1: 28.6 * fracH, y1: 10.2 * fracW }, {color: 'blue', width: 3})
     }, []);
     
-    /*
+    
       useEffect(() => {
         let width = window.innerHeight * 0.8;
         let height = window.innerWidth;
@@ -300,7 +300,7 @@ const Canvas = () => {
             ctx.textAlign = "left";
 ctx.fillText(i, 0, i * fracW - 2);
           }
-      }, []);*/
+      }, []);
 
     return (
         <div>
@@ -309,4 +309,4 @@ ctx.fillText(i, 0, i * fracW - 2);
     );
 }
 
-export default Canvas;
+export default FloorThree;

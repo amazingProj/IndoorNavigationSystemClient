@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import './style/canvas.css';
 
-const Canvas = () => {
+const FloorFive = () => {
     const canvas = useRef();
     let ctx = null;
 
@@ -232,21 +232,6 @@ const Canvas = () => {
       // right-down- to top
       drawLine({x: 24 * fracH, y: 17.4 * fracW, x1: 24 * fracH, y1: 10.8 * fracW }, colorBorder)
       ctx.fillText("חדרי מרצים", 23 * fracH , 15 * fracW);
-      for (let j = 0; j < 6; ++j)
-      {
-        for (let i = 0; i < 6; ++i)
-        {
-          drawFillRect({ x: (2.6 + j) * fracH + offsetX, y: (1.1 + i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
-        }
-      }
-
-      for (let j = 0; j < 6; ++j)
-      {
-        for (let i = 0; i < 6; ++i)
-        {
-          drawFillRect({ x: (10.6 + j) * fracH + offsetX, y: (1.1 + i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
-        }
-      }
       
       for (let j = 0; j < 5; ++j)
       {
@@ -280,7 +265,7 @@ const Canvas = () => {
       drawLine({x: 28.6 * fracH, y: 8.2 * fracW, x1: 28.6 * fracH, y1: 10.2 * fracW }, {color: 'blue', width: 3})
     }, []);
     
-    /*
+    
       useEffect(() => {
         let width = window.innerHeight * 0.8;
         let height = window.innerWidth;
@@ -300,7 +285,7 @@ const Canvas = () => {
             ctx.textAlign = "left";
 ctx.fillText(i, 0, i * fracW - 2);
           }
-      }, []);*/
+      }, []);
 
     return (
         <div>
@@ -309,4 +294,4 @@ ctx.fillText(i, 0, i * fracW - 2);
     );
 }
 
-export default Canvas;
+export default FloorFive;

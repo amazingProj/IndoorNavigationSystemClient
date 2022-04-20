@@ -1,9 +1,19 @@
 import "./App.css";
 import React from 'react';
 import Navbar from "./components/Navbar";
+import FloorThree from "./components/floor3th";
+import FloorFive from "./components/floor5th";
 import Canvas from './components/canvas';
+import Chat from "./components/chatClone";
 import { useState, useEffect, useRef } from "react";
 import socketIOClient from "socket.io-client";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+} from "react-router-dom";
 const ENDPOINT = "http://127.0.0.1:4001";
 
 function App() {
@@ -24,11 +34,24 @@ function App() {
   }, []);
  
   return (
-    <div>
-      <Navbar />
-    <div ref={userRef} className="user"></div>
-    <Canvas />
-    </div>
+    <BrowserRouter>
+    <Navbar />
+    <Switch>
+      <Route exact path="/floor4">
+        <Canvas />
+      </Route>
+      <Route path="/floor3">
+        <FloorThree />
+      </Route>
+      <Route path="/floor5">
+        <FloorFive />
+      </Route>
+      <Route path="/chat">
+        <Chat />
+      </Route>
+    </Switch>
+  </BrowserRouter>
+    
   );
 }
 
