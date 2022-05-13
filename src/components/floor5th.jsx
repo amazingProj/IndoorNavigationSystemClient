@@ -210,26 +210,40 @@ const FloorFive = () => {
     }, []);
     
     
-      useEffect(() => {
-        let width = window.innerHeight * 0.8;
-        let height = window.innerWidth;
-        let fracH = Math.trunc(height / 34);
+    useEffect(() => {
+      let width = window.innerHeight * 0.8;
+      let height = window.innerWidth;
+      let fracH = Math.trunc(height / 34);
 
-          for (let i = 1; i < 34; ++i){
-            drawLineWithoutOffset({ x: i * fracH, y: 0, x1: i * fracH, y1: height });
-            ctx.font = "12px Arial";
-             
-            ctx.textAlign = "right";      
+      ctx.font = "12px Arial";
+      ctx.fillStyle = "#00000F";
+      ctx.textAlign = "right"; 
+
+        for (let i = 1; i < 34; ++i){
+          drawLineWithoutOffset({ x: i * fracH, y: 0, x1: i * fracH, y1: height });
+          
+          if (i < 6)
+          {
+            ctx.fillText(6 - i + "-", i * fracH - 2,Math.trunc(width * 0.05));
+          }
+          else if (i < 30)
+          {
             ctx.fillText(i - 5, i * fracH - 2,Math.trunc(width * 0.05));
           }
-        let fracW = Math.trunc(width / 17.2);
-        
-        for (let i = 1; i < 18; ++i){
-          drawLineWithoutOffset({ x: 0, y: i * fracW, x1: height, y1: i * fracW });
-            ctx.textAlign = "left";
-ctx.fillText(i, 0, i * fracW - 2);
+          else
+          {
+            ctx.fillText((i - 29) + "+", i * fracH - 2,Math.trunc(width * 0.05));
           }
-      }, []);
+          
+        }
+      let fracW = Math.trunc(width / 17.2);
+      
+      for (let i = 1; i < 18; ++i){
+        drawLineWithoutOffset({ x: 0, y: i * fracW, x1: height, y1: i * fracW });
+          ctx.textAlign = "left";
+ctx.fillText(i, 0, i * fracW - 2);
+        }
+    }, []);
 
     return (
         <div>

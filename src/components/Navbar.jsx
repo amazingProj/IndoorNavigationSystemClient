@@ -23,7 +23,7 @@ const Navbar = () => {
           <li className='hover:bg-zinc-300'><Link to={'/floor3'}>קומה 3</Link></li>
           <li className='hover:bg-zinc-300'><Link to={'/floor4'}>קומה 4</Link></li>
           <li className='hover:bg-zinc-300'><Link to={'/floor5'}>קומה 5</Link></li>
-          <li className='hover:bg-zinc-300'><Link to={'/chat'}>צ'אט</Link></li>
+          
           </ul>
         </div>
         <div className='md:hidden mr-4' onClick={handleClick}>
@@ -36,9 +36,6 @@ const Navbar = () => {
           <li className='hover:bg-zinc-300 border-b-2 border-zinc-300 w-full'><Link to={'/floor3'}>קומה 3</Link></li>
           <li className='hover:bg-zinc-300 border-b-2 border-zinc-300 w-full'><Link to={'/floor4'}>קומה 4</Link></li>
           <li className='hover:bg-zinc-300 border-b-2 border-zinc-300 w-full'><Link to={'/floor5'}>קומה 5</Link></li>
-          <li className='hover:bg-zinc-300 border-b-2 border-zinc-300 w-full'><Link to={'/chat'}>צ'אט</Link></li>
-
-        
       </ul>
     </div>
   );

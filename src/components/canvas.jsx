@@ -54,61 +54,14 @@ const Canvas = () => {
         ctx = canvasEle.getContext("2d");
 
         
-        let width = window.innerHeight * 0.8;
+      let width = window.innerHeight * 0.8;
       let height = window.innerWidth;
       let fracH = Math.trunc(height / 34);
       let fracW = Math.trunc(width / 17);
       let offsetX = 4 * fracH;
       let offsetY = 0.01 * window.innerHeight;
-      const r1Info = { x: 5 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r1Info, { backgroundColor: '#cd8500' });
-      const r2Info = { x: 6 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r2Info, { backgroundColor: '#cd8500' });
-      const r3Info = { x: 7 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r3Info, { backgroundColor: '#cd8500' });
-      const r4Info = { x: 4 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r4Info, { backgroundColor: '#cd8500' });
-      const rr1Info = { x: 3 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(rr1Info, { backgroundColor: '#cd8500' });
-      const rr2Info = { x: 2 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(rr2Info, { backgroundColor: '#cd8500' });
 
-      const r5Info = { x: 10 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r5Info, { backgroundColor: '#cd8500' });
-      const r6Info = { x: 11 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r6Info, { backgroundColor: '#cd8500' });
-      const r7Info = { x: 12 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r7Info, { backgroundColor: '#cd8500' });
-      const r8Info = { x: 13 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r8Info, { backgroundColor: '#cd8500' });
-      const r9Info = { x: 14 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r9Info, { backgroundColor: '#cd8500' });
-      const r10Info = { x: 15 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r10Info, { backgroundColor: '#cd8500' });
-
-      const r11Info = { x: 2 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r11Info, { backgroundColor: '#cd8500' });
-      const r12Info = { x: 3 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r12Info, { backgroundColor: '#cd8500' });
-      const r13Info = { x: 4 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r13Info, { backgroundColor: '#cd8500' });
-      const r14Info = { x: 5 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r14Info, { backgroundColor: '#cd8500' });
-      const r15Info = { x: 6 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r15Info, { backgroundColor: '#cd8500' });
-      const rr3Info = { x: 7 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(rr3Info, { backgroundColor: '#cd8500' });
-
-      const r16Info = { x: 10 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r16Info, { backgroundColor: '#cd8500' });
-      const r17Info = { x: 11 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r17Info, { backgroundColor: '#cd8500' });
-      const r18Info = { x: 12 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r18Info, { backgroundColor: '#cd8500' });
-      const r19Info = { x: 13 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r19Info, { backgroundColor: '#cd8500' });
-      const r20Info = { x: 14 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r20Info, { backgroundColor: '#cd8500' });
+      
       let colorBorder = {color: 'black', width: 5};
       drawLine({x: 8.8 * fracH, y: 0, x1: 8.8 * fracH, y1: 8.8 * fracW }, {color: 'black', width: 3})
       drawLine({x: 0, y: 8.8 * fracW, x1: 2 * fracH, y1: 8.8 * fracW }, colorBorder)
@@ -126,7 +79,7 @@ const Canvas = () => {
       drawLine({x: 16.5 * fracH, y: 0, x1: 16.5 * fracH, y1: 8.8 * fracW }, colorBorder)
       // class 440 near door
       drawLine({x: 8.8 * fracH, y: 8.8 * fracW, x1: 10 * fracH, y1: 8.8 * fracW }, colorBorder)
-      drawLine({x: 11.6 * fracH, y: 8.8 * fracW, x1: 16.6 * fracH, y1: 8.8 * fracW }, colorBorder)
+      drawLine({x: 11.6 * fracH, y: 8.8 * fracW, x1: 16.5 * fracH, y1: 8.8 * fracW }, colorBorder)
       ctx.font = "22px Arial";
       ctx.fillStyle = "#00000F";
       ctx.textAlign = "right";      
@@ -136,8 +89,8 @@ const Canvas = () => {
       drawLine({x: 0, y: 10.8 * fracW, x1: 0, y1: 17.5 * fracW }, colorBorder)
       drawLine({x: 0, y: 17.4 * fracW, x1: 8.7 * fracH, y1: 17.4 * fracW }, colorBorder)
       drawLine({x: 8.7 * fracH, y: 10.8 * fracW, x1: 8.7 * fracH, y1: 17.5 * fracW }, {color: 'black', width: 3})
-      drawLine({x: 0, y: 10.8 * fracW, x1: 5 * fracH, y1: 10.8 * fracW }, colorBorder)      
-      drawLine({x: 6.6 * fracH, y: 10.8 * fracW, x1: 8.7 * fracH, y1: 10.8 * fracW }, colorBorder)
+      drawLine({x: 0, y: 10.8 * fracW, x1: 4.2 * fracH, y1: 10.8 * fracW }, colorBorder)      
+      drawLine({x: 5.5 * fracH, y: 10.8 * fracW, x1: 8.7 * fracH, y1: 10.8 * fracW }, colorBorder)
       ctx.font = "22px Arial";
       ctx.fillStyle = "#00000F";
       ctx.textAlign = "right"; 
@@ -164,7 +117,10 @@ const Canvas = () => {
       ctx.textAlign = "right"; 
       ctx.fillText("מדרגות", 31.3 * fracH , 10.5 * fracW);
 
-      drawLine({x: 16.5 * fracH, y: 8.8 * fracW, x1: 21.5 * fracH, y1: 8.8 * fracW }, colorBorder)
+      // where is written birzia3
+      drawLine({x: 16.5 * fracH, y: 8.3 * fracW, x1: 17.3 * fracH, y1: 8.3 * fracW }, colorBorder)
+      drawLine({x: 17.3 * fracH, y: 8.8 * fracW, x1: 17.3 * fracH, y1: 8.3 * fracW }, colorBorder)
+      drawLine({x: 17.3 * fracH, y: 8.8 * fracW, x1: 21.5 * fracH, y1: 8.8 * fracW }, colorBorder)
       drawLine({x: 21.5 * fracH, y: 8.8 * fracW, x1: 21.5 * fracH, y1: 5 * fracW }, colorBorder)
       drawLine({x: 21.5 * fracH, y: 4 * fracW, x1: 21.5 * fracH, y1: 2.5 * fracW }, colorBorder)
       drawLine({x: 21.5 * fracH, y: 2.5 * fracW, x1: 22.5 * fracH, y1: 2.5 * fracW }, colorBorder)
@@ -214,7 +170,6 @@ const Canvas = () => {
       // right - top
       drawLine({x: 16.5 * fracH, y: 3.5 * fracW, x1: 21.5 * fracH, y1: 3.5 * fracW }, {color: 'black', width: 2})
       drawLine({x: 16.5 * fracH, y: 5.5 * fracW, x1: 21.5 * fracH, y1: 5.5 * fracW }, {color: 'black', width: 2})
-      ctx.fillText("מטבחון", 25 * fracH , 5 * fracW);
 
       ctx.fillText("חדרי מרצים", 25 * fracH , 7 * fracW);
       ctx.fillText("מעבדה", 29 * fracH , 7 * fracW);
@@ -257,13 +212,76 @@ const Canvas = () => {
         }
       }
 
-      for (let j = 0; j < 6; ++j)
+      for (let j = 0; j < 5; ++j)
       {
-        for (let i = 0; i < 5; ++i)
+        for (let i = 0; i < 9; ++i)
         {
-          drawFillRect({ x: (2.6 + j) * fracH + offsetX, y: (11.8 + i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
+          if (j === 4)
+          {
+            drawFillRect({ x: (1.4 + 1.2 * j) * fracH + offsetX, y: (12 + 0.5 * i) * fracW, w: 0.2 * fracH, h: 0.3 * fracW }, { backgroundColor: 'black' });
+          }
+          else
+          {
+            drawFillRect({ x: (1.4 + 1.2 * j) * fracH + offsetX, y: (11.8 + 0.5 * i) * fracW, w: 0.2 * fracH, h: 0.3 * fracW }, { backgroundColor: 'black' });
+          }
+          
         }
       }
+
+
+      const r1Info = { x: 5 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
+      drawFillRect(r1Info, { backgroundColor: '#cd8500' });
+      const r2Info = { x: 6 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
+      drawFillRect(r2Info, { backgroundColor: '#cd8500' });
+      const r3Info = { x: 7 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
+      drawFillRect(r3Info, { backgroundColor: '#cd8500' });
+      const r4Info = { x: 4 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
+      drawFillRect(r4Info, { backgroundColor: '#cd8500' });
+      const rr1Info = { x: 3 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
+      drawFillRect(rr1Info, { backgroundColor: '#cd8500' });
+      const rr2Info = { x: 2 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
+      drawFillRect(rr2Info, { backgroundColor: '#cd8500' });
+
+    
+      const r5Info = { x: 10 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
+      drawFillRect(r5Info, { backgroundColor: '#cd8500' });
+      const r6Info = { x: 11 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
+      drawFillRect(r6Info, { backgroundColor: '#cd8500' });
+      const r7Info = { x: 12 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
+      drawFillRect(r7Info, { backgroundColor: '#cd8500' });
+      const r8Info = { x: 13 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
+      drawFillRect(r8Info, { backgroundColor: '#cd8500' });
+      const r9Info = { x: 14 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
+      drawFillRect(r9Info, { backgroundColor: '#cd8500' });
+      const r10Info = { x: 15 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
+      drawFillRect(r10Info, { backgroundColor: '#cd8500' });
+
+      const r12Info = { x: 1.5 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
+      drawFillRect(r12Info, { backgroundColor: '#cd8500' });
+      const r13Info = { x: 2.7 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
+      drawFillRect(r13Info, { backgroundColor: '#cd8500' });
+      const r14Info = { x: 3.9 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
+      drawFillRect(r14Info, { backgroundColor: '#cd8500' });
+      const r15Info = { x: 5.1 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
+      drawFillRect(r15Info, { backgroundColor: '#cd8500' });
+      const rr3Info = { x: 6.3 * fracH + offsetX, y: 11.7 * fracW, w: 0.5 * fracH, h: 4.8 * fracW };
+      drawFillRect(rr3Info, { backgroundColor: '#cd8500' });
+
+      const r16Info = { x: 10 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
+      drawFillRect(r16Info, { backgroundColor: '#cd8500' });
+      const r17Info = { x: 11 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
+      drawFillRect(r17Info, { backgroundColor: '#cd8500' });
+      const r18Info = { x: 12 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
+      drawFillRect(r18Info, { backgroundColor: '#cd8500' });
+      const r19Info = { x: 13 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
+      drawFillRect(r19Info, { backgroundColor: '#cd8500' });
+      const r20Info = { x: 14 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
+      drawFillRect(r20Info, { backgroundColor: '#cd8500' });
+
+
+      const re2Info = { x: 8.6 * fracH + offsetX, y: 11 * fracW, w: 0.05 * fracH, h: 6 * fracW };
+      drawFillRect(re2Info, { backgroundColor: '#C4CACD' });
+
 
       // stairs - left
       drawLine({x: 0 * fracH, y: 8.2 * fracW, x1: -4.6 * fracH, y1: 8.2 * fracW }, {color: 'blue', width: 3})
@@ -275,33 +293,56 @@ const Canvas = () => {
       drawLine({x: 27 * fracH, y: 10.5 * fracW, x1: 26.4 * fracH, y1: 10.5 * fracW }, {color: 'black', width: 3})
       drawLine({x: 25.46 * fracH, y: 10.5 * fracW, x1: 25.8 * fracH, y1: 10.5 * fracW }, {color: 'black', width: 3})
     
+      ctx.fillStyle = "#00000F";
+      
       ctx.fillText("מעלית", 31.8 * fracH , 12 * fracW);
 
       drawLine({x: 24 * fracH, y: 8.2 * fracW, x1: 28.6 * fracH, y1: 8.2 * fracW }, {color: 'blue', width: 3})
       drawLine({x: 28.6 * fracH, y: 8.2 * fracW, x1: 28.6 * fracH, y1: 10.2 * fracW }, {color: 'blue', width: 3})
+      
+      ctx.font = "12px Arial";
+      ctx.fillStyle = "#00000F";
+      ctx.textAlign = "right"; 
+
+      ctx.fillText("ברזיה", 22.2 * fracH , 8.9 * fracW);
+
+    
     }, []);
     
-    /*
-      useEffect(() => {
-        let width = window.innerHeight * 0.8;
-        let height = window.innerWidth;
-        let fracH = Math.trunc(height / 34);
+    useEffect(() => {
+      let width = window.innerHeight * 0.8;
+      let height = window.innerWidth;
+      let fracH = Math.trunc(height / 34);
 
-          for (let i = 1; i < 34; ++i){
-            drawLineWithoutOffset({ x: i * fracH, y: 0, x1: i * fracH, y1: height });
-            ctx.font = "12px Arial";
-             
-            ctx.textAlign = "right";      
+      ctx.font = "12px Arial";
+      ctx.fillStyle = "#00000F";
+      ctx.textAlign = "right"; 
+
+        for (let i = 1; i < 34; ++i){
+          drawLineWithoutOffset({ x: i * fracH, y: 0, x1: i * fracH, y1: height });
+          
+          if (i < 6)
+          {
+            ctx.fillText(6 - i + "-", i * fracH - 2,Math.trunc(width * 0.05));
+          }
+          else if (i < 30)
+          {
             ctx.fillText(i - 5, i * fracH - 2,Math.trunc(width * 0.05));
           }
-        let fracW = Math.trunc(width / 17.2);
-        
-        for (let i = 1; i < 18; ++i){
-          drawLineWithoutOffset({ x: 0, y: i * fracW, x1: height, y1: i * fracW });
-            ctx.textAlign = "left";
-ctx.fillText(i, 0, i * fracW - 2);
+          else
+          {
+            ctx.fillText((i - 29) + "+", i * fracH - 2,Math.trunc(width * 0.05));
           }
-      }, []);*/
+          
+        }
+      let fracW = Math.trunc(width / 17.2);
+      
+      for (let i = 1; i < 18; ++i){
+        drawLineWithoutOffset({ x: 0, y: i * fracW, x1: height, y1: i * fracW });
+          ctx.textAlign = "left";
+ctx.fillText(i, 0, i * fracW - 2);
+        }
+    }, []);
 
     return (
         <div>
