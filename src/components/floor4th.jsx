@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import './style/canvas.css';
 
-const Canvas = () => {
+const FloorFour = () => {
     const canvas = useRef();
     let ctx = null;
 
@@ -228,60 +228,48 @@ const Canvas = () => {
         }
       }
 
+      let TableBackground = { backgroundColor: '#cd8500' };
 
-      const r1Info = { x: 5 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r1Info, { backgroundColor: '#cd8500' });
-      const r2Info = { x: 6 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r2Info, { backgroundColor: '#cd8500' });
-      const r3Info = { x: 7 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r3Info, { backgroundColor: '#cd8500' });
-      const r4Info = { x: 4 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r4Info, { backgroundColor: '#cd8500' });
-      const rr1Info = { x: 3 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(rr1Info, { backgroundColor: '#cd8500' });
-      const rr2Info = { x: 2 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(rr2Info, { backgroundColor: '#cd8500' });
+      for (let i = 0; i < 6; ++i)
+      {
 
-    
-      const r5Info = { x: 10 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r5Info, { backgroundColor: '#cd8500' });
-      const r6Info = { x: 11 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r6Info, { backgroundColor: '#cd8500' });
-      const r7Info = { x: 12 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r7Info, { backgroundColor: '#cd8500' });
-      const r8Info = { x: 13 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r8Info, { backgroundColor: '#cd8500' });
-      const r9Info = { x: 14 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r9Info, { backgroundColor: '#cd8500' });
-      const r10Info = { x: 15 * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW };
-      drawFillRect(r10Info, { backgroundColor: '#cd8500' });
+        drawFillRect({ x: (2 + i) * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW }
+          , TableBackground);
 
-      const r12Info = { x: 1.5 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r12Info, { backgroundColor: '#cd8500' });
-      const r13Info = { x: 2.7 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r13Info, { backgroundColor: '#cd8500' });
-      const r14Info = { x: 3.9 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r14Info, { backgroundColor: '#cd8500' });
-      const r15Info = { x: 5.1 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r15Info, { backgroundColor: '#cd8500' });
-      const rr3Info = { x: 6.3 * fracH + offsetX, y: 11.7 * fracW, w: 0.5 * fracH, h: 4.8 * fracW };
-      drawFillRect(rr3Info, { backgroundColor: '#cd8500' });
-
-      const r16Info = { x: 10 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r16Info, { backgroundColor: '#cd8500' });
-      const r17Info = { x: 11 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r17Info, { backgroundColor: '#cd8500' });
-      const r18Info = { x: 12 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r18Info, { backgroundColor: '#cd8500' });
-      const r19Info = { x: 13 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r19Info, { backgroundColor: '#cd8500' });
-      const r20Info = { x: 14 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW };
-      drawFillRect(r20Info, { backgroundColor: '#cd8500' });
+      }
 
 
+      for (let i = 0; i < 6; ++i)
+      {
+        drawFillRect({ x: (10 + i) * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW }
+          , TableBackground);
+      
+      }
+
+      for (let p = 0; p < 6; p += 1.2)
+      {
+        
+        // the first one
+        if (p === 0)
+        {
+          drawFillRect({ x: (1.5 + p) * fracH + offsetX, y: 11.7 * fracW, w: 0.5 * fracH, h: 4.8 * fracW }
+          , TableBackground);
+        
+        }
+        else
+        {
+          drawFillRect({ x: (1.5 + p) * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW }
+            , TableBackground);
+        }
+      }
+
+      for (let i = 0; i < 5; ++i)
+      {
+        drawFillRect({ x: 10 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW }, { backgroundColor: '#cd8500' });
+      }
+      
       const re2Info = { x: 8.6 * fracH + offsetX, y: 11 * fracW, w: 0.05 * fracH, h: 6 * fracW };
       drawFillRect(re2Info, { backgroundColor: '#C4CACD' });
-
 
       // stairs - left
       drawLine({x: 0 * fracH, y: 8.2 * fracW, x1: -4.6 * fracH, y1: 8.2 * fracW }, {color: 'blue', width: 3})
@@ -305,8 +293,6 @@ const Canvas = () => {
       ctx.textAlign = "right"; 
 
       ctx.fillText("ברזיה", 22.2 * fracH , 8.9 * fracW);
-
-    
     }, []);
     
     useEffect(() => {
@@ -351,4 +337,4 @@ ctx.fillText(i, 0, i * fracW - 2);
     );
 }
 
-export default Canvas;
+export default FloorFour;
