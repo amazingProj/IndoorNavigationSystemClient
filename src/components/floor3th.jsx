@@ -63,14 +63,22 @@ const FloorThree = () => {
       let fracW = Math.trunc(width / 17);
       let offsetX = 4.1 * fracH;
       let offsetY = 0.01 * window.innerHeight;
+      let xOffset = 0.025 * window.innerWidth;
       let image = new Image();
       image.addEventListener('load', function () {
-        ctx.drawImage(image, offsetX + 14.5 * fracH, offsetY + 5.5 * fracW)
+        ctx.drawImage(image, xOffset + 17.5 * fracH, offsetY + 5.5 * fracW)
       }, false);
     
       image.src = accessPointImage;
       
 
+      let image2 = new Image();
+      image.addEventListener('load', function () {
+        ctx.drawImage(image, xOffset + 17.5 * fracH, offsetY + 16 * fracW)
+      }, false);
+    
+      image2.src = accessPointImage;
+      
       let colorBorder = {color: 'black', width: 5};
       drawLine({x: 9.5 * fracH, y: 0, x1: 9.5 * fracH, y1: 7.1 * fracW }, {color: 'black', width: 3})
       drawLine({x: 0, y: 7.1 * fracW, x1: 2 * fracH, y1: 7.1 * fracW }, colorBorder)
