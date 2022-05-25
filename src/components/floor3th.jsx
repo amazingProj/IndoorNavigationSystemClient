@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import './style/canvas.css';
+import accessPointImage from './style/images/accessPoint.svg'
+
 
 const FloorThree = () => {
+  
     const canvas = useRef();
     let ctx = null;
 
@@ -58,8 +61,15 @@ const FloorThree = () => {
       let height = window.innerWidth;
       let fracH = Math.trunc(height / 34);
       let fracW = Math.trunc(width / 17);
-      let offsetX = 4 * fracH;
-
+      let offsetX = 4.1 * fracH;
+      let offsetY = 0.01 * window.innerHeight;
+      let image = new Image();
+      image.addEventListener('load', function () {
+        ctx.drawImage(image, offsetX + 14.5 * fracH, offsetY + 5.5 * fracW)
+      }, false);
+    
+      image.src = accessPointImage;
+      
 
       let colorBorder = {color: 'black', width: 5};
       drawLine({x: 9.5 * fracH, y: 0, x1: 9.5 * fracH, y1: 7.1 * fracW }, {color: 'black', width: 3})
@@ -255,8 +265,9 @@ ctx.fillText(i, 0, i * fracW - 2);
       }, []);
 
     return (
-        <div>
-            <canvas ref={canvas}></canvas>
+      <div>
+        
+        <canvas ref={canvas}></canvas>
         </div>
     );
 }
