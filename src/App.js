@@ -41,6 +41,9 @@ function App() {
     <div>
       <BrowserRouter>
         <Navbar />
+        <Route exact path="/">
+          <FloorFour />
+        </Route>
         <Switch>
           <Route exact path="/floor4">
             <FloorFour />
@@ -54,7 +57,6 @@ function App() {
         </Switch>
       </BrowserRouter>
       <TrackedUsers />
-      
     </div>
   );
 }

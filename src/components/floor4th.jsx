@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import './style/canvas.css';
+import accessPointImage from './style/images/accessPoint.svg'
 
 const FloorFour = () => {
     const canvas = useRef();
@@ -60,6 +61,18 @@ const FloorFour = () => {
       let fracW = Math.trunc(width / 17);
       let offsetX = 4 * fracH;
       let offsetY = 0.01 * window.innerHeight;
+      let xOffset = 0.025 * window.innerWidth;
+
+      let image = new Image();
+      image.addEventListener('load', function () {
+        ctx.drawImage(image, xOffset + (7.9 + 4.5) * fracH, offsetY + 14.5 * fracW)
+        ctx.drawImage(image, xOffset + (9 + 3.6) * fracH, offsetY + 5.9 * fracW)
+        ctx.drawImage(image, xOffset + (8.1 + 4.5) * fracH, offsetY + 15 * fracW)
+        ctx.drawImage(image, xOffset + (9.2 + 3.5) * fracH, offsetY + 4.2 * fracW)
+        ctx.drawImage(image, xOffset + (21.6 + 4) * fracH, offsetY + 2.6 * fracW)
+      }, false);
+    
+      image.src = accessPointImage;
 
       
       let colorBorder = {color: 'black', width: 5};
