@@ -39,6 +39,7 @@ function App() {
 
   return (
     <div>
+      
       <BrowserRouter>
         <Navbar />
         <Route exact path="/">

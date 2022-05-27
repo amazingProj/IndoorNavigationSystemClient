@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import './style/canvas.css';
 import accessPointImage from './style/images/accessPoint.svg'
-
+import User from "./user";
 
 const FloorThree = () => {
   
@@ -56,8 +56,8 @@ const FloorThree = () => {
         // get context of the canvas
         ctx = canvasEle.getContext("2d");
 
-        
-        let width = window.innerHeight * 0.8;
+      
+      let width = window.innerHeight * 0.8;
       let height = window.innerWidth;
       let fracH = Math.trunc(height / 34);
       let fracW = Math.trunc(width / 17);
@@ -172,28 +172,35 @@ const FloorThree = () => {
       // right-down- to top
       drawLine({x: 24 * fracH, y: 17.4 * fracW, x1: 24 * fracH, y1: 10.8 * fracW }, colorBorder)
       
-      ctx.fillText("מעבדת מחשבים", 27 * fracH , 15 * fracW);
+      ctx.fillText("מחשבים", 27 * fracH , 15.5 * fracW);
+      ctx.fillText("מעבדת", 27 * fracH , 15 * fracW);
       ctx.fillText("חדר 320", 26 * fracH , 13 * fracW);
       ctx.fillText("מעבדת", 13 * fracH , 14 * fracW);
       ctx.fillText("אלקרו-אופטיקה", 13 * fracH , 14.5 * fracW);
       ctx.fillText("כיתה 325", 26 * fracH , 6 * fracW);
 
-      for (let j = 0; j < 6; ++j)
+
+      /// class 315
+      for (let j = 0; j < 5; ++j)
       {
         for (let i = 0; i < 3; ++i)
         {
-          drawFillRect({ x: (4.3 + j) * fracH + offsetX, y: (4.25 + i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
-          drawFillRect({ x: (3.8 + j) * fracH + offsetX, y: (3.85 + i) * fracW, w: 0.6 * fracH, h: 1.1 * fracW }, { backgroundColor: '#cd8500' });
+          // chairs
+          drawFillRect({ x: (1 + j) * fracH + offsetX, y: (0 + i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: '#e2b681' });
+          // tables
+          drawFillRect({ x: (1.2 + j) * fracH + offsetX, y: (0 + i) * fracW, w: 0.6 * fracH, h: 1.1 * fracW }, { backgroundColor: '#cd8500' });
         }
       }
 
-      for (let j = 0; j < 4; j++)
+      // class 325
+      for (let j = 0; j < 3; j++)
       {
         for (let i = 0; i < 4; ++i)
         {
           
-          drawFillRect({ x: (20 + j) * fracH + offsetX, y: (1.1 + i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
-          drawFillRect({ x: (19.5 + j) * fracH + offsetX, y: (0.75 + i) * fracW, w: 0.6 * fracH, h: 1.1 * fracW }, { backgroundColor: '#cd8500' });
+          // chairs
+          drawFillRect({ x: (20 + j) * fracH + offsetX, y: (0.1 + 0.7 * i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: '#582900' });
+          drawFillRect({ x: (19.5 + j) * fracH + offsetX, y: (0 + 0.6 * i) * fracW, w: 0.6 * fracH, h: 1.1 * fracW }, { backgroundColor: '#cd8500' });
         
         }
       }
@@ -269,6 +276,7 @@ ctx.fillText(i, 0, i * fracW - 2);
       <div>
         
         <canvas ref={canvas}></canvas>
+        <User x="8" y="9" name="Assaf Hillel" />
         </div>
     );
 }

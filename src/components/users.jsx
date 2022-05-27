@@ -1,30 +1,28 @@
 import React, { useState, useEffect, useRef } from "react";
 import './style/canvas.css';
 import socketIOClient from "socket.io-client";
+import User from "./user"
+
 const TrackedUsers = () => {
   const userRef = useRef();
   const ENDPOINT = "http://127.0.0.1:4001";
   const [response, setResponse] = useState("");
-  let basePercentLeft = 14;
-  let basePercentTop = 13;
+  let users;
 
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
     socket.on("users/devices/location", data => {
       let wifiInformation = JSON.parse(JSON.stringify(data));
-      //setResponse(data);
-      console.log(wifiInformation)
-      userRef.current.style.left = basePercentLeft + wifiInformation["x"] * 2.94 + "%";
-      userRef.current.style.top = basePercentTop + wifiInformation["y"] * 4.76 + "%";
-     });
+      console.log(wifiInformation);
+      
+      
+    });
   }, []);
  
   return (
     <div>
       <div ref={userRef} className="user">
-        <div>
-          <p><br /><br /><br />אסף הלל</p> 
-        </div>
+        <User x="8" y="9" name="Assaf Hillel" />
       </div>
       
     
