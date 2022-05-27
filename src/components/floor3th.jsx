@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import './style/canvas.css';
 import accessPointImage from './style/images/accessPoint.svg'
-import User from "./user";
+import TrackedUsers from "./users";
 
 const FloorThree = () => {
   
@@ -276,8 +276,8 @@ ctx.fillText(i, 0, i * fracW - 2);
       <div>
         
         <canvas ref={canvas}></canvas>
-        <User x="8" y="9" name="Assaf Hillel" />
-        </div>
+        <TrackedUsers floor="3" />
+      </div>
     );
 }
 

@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import './style/canvas.css';
 import socketIOClient from "socket.io-client";
-import User from "./user"
+import User from "./user";
 
-const TrackedUsers = () => {
+
+const TrackedUsers = (props) => {
   const userRef = useRef();
   const ENDPOINT = "http://127.0.0.1:4001";
   const [response, setResponse] = useState("");
-  let users;
 
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
@@ -21,11 +21,9 @@ const TrackedUsers = () => {
  
   return (
     <div>
-      <div ref={userRef} className="user">
+      <div ref={userRef}>
         <User x="8" y="9" name="Assaf Hillel" />
       </div>
-      
-    
     </div>
     
     

@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import FloorThree from "./components/floor3th";
 import FloorFive from "./components/floor5th";
 import FloorFour from "./components/floor4th";
-import TrackedUsers from "./components/users";
 import { useState, useEffect, useRef } from "react";
 import socketIOClient from "socket.io-client";
 
@@ -39,7 +38,6 @@ function App() {
 
   return (
     <div>
-      
       <BrowserRouter>
         <Navbar />
         <Route exact path="/">
@@ -57,7 +55,6 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
-      <TrackedUsers />
     </div>
   );
 }
