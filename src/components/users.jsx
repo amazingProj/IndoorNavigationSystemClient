@@ -22,7 +22,7 @@ const TrackedUsers = (props) => {
   return (
     <div>
       <div ref={userRef}>
-        <User x="8" y="9" name="Assaf Hillel" />
+        <User x="8" y="9" name="Assaf Hillel" battery="70"/>
       </div>
     </div>
     

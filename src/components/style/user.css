@@ -1,0 +1,40 @@
+#battery {
+    margin-right: 0.8cm;
+    background: #eee;
+    box-shadow: 0 -25px 0 -16px #eee, 0 0 0 2px #000, 0 -25px 0 -14px #000;
+    height: 36px;
+    position: relative;
+    width: 18px;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+}
+
+#lvl {
+    background: #7f7;
+    bottom: 0;
+    height: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+#text {
+    margin-top: -0.2cm;
+    margin-bottom: 0.4cm;
+    margin-right: 0.1cm;
+    font-size: 12px;
+    font-weight: bold;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 45%;
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+}
