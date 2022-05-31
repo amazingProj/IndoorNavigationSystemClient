@@ -3,58 +3,57 @@ import './style/canvas.css';
 import accessPointImage from './style/images/accessPoint.svg'
 
 const FloorFour = () => {
-    const canvas = useRef();
-    let ctx = null;
+  const canvas = useRef();
+  let ctx = null;
 
-    const drawFillRect = (info, style = {}) => {
-      const { x, y, w, h } = info;
-      const { backgroundColor = 'black' } = style;
-      let offsetX = 0.025 * window.innerWidth;
+  const drawFillRect = (info, style = {}) => {
+    const { x, y, w, h } = info;
+    const { backgroundColor = 'black' } = style;
+    let offsetX = 0.025 * window.innerWidth;
+    let offsetY = 0.01 * window.innerHeight;
+    ctx.beginPath();
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(x + offsetX, y + offsetY, w, h);
+  }
+
+
+
+  const drawLine = (info, style = {}) => {
+      const { x, y, x1, y1 } = info;
+      const { color = 'black', width = 1 } = style;
+      let height = window.innerWidth;
+      let fracH = Math.trunc(height / 34);
+      let offsetX = 5 * fracH;
       let offsetY = 0.01 * window.innerHeight;
       ctx.beginPath();
-      ctx.fillStyle = backgroundColor;
-      ctx.fillRect(x + offsetX, y + offsetY, w, h);
+      ctx.moveTo(x + offsetX, y + offsetY);
+      ctx.lineTo(x1 + offsetX, y1 + offsetY);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.stroke();
     }
 
-
-
-    const drawLine = (info, style = {}) => {
-        const { x, y, x1, y1 } = info;
-        const { color = 'black', width = 1 } = style;
-        let height = window.innerWidth;
-        let fracH = Math.trunc(height / 34);
-        let offsetX = 5 * fracH;
-        let offsetY = 0.01 * window.innerHeight;
-        ctx.beginPath();
-        ctx.moveTo(x + offsetX, y + offsetY);
-        ctx.lineTo(x1 + offsetX, y1 + offsetY);
-        ctx.strokeStyle = color;
-        ctx.lineWidth = width;
-        ctx.stroke();
-      }
-
-      const drawLineWithoutOffset = (info, style = {}) => {
-        const { x, y, x1, y1 } = info;
-        const { color = 'black', width = 1 } = style;
-        ctx.beginPath();
-        ctx.moveTo(x , y);
-        ctx.lineTo(x1 , y1);
-        ctx.strokeStyle = color;
-        ctx.lineWidth = width;
-        ctx.stroke();
-      }
+    const drawLineWithoutOffset = (info, style = {}) => {
+      const { x, y, x1, y1 } = info;
+      const { color = 'black', width = 1 } = style;
+      ctx.beginPath();
+      ctx.moveTo(x , y);
+      ctx.lineTo(x1 , y1);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.stroke();
+    }
     
 
     useEffect(() => {
         // dynamically assign the width and height to canvas
-        const canvasEle = canvas.current;
-        canvasEle.width = canvasEle.clientWidth;
-        canvasEle.height = canvasEle.clientHeight;
-     
-        // get context of the canvas
-        ctx = canvasEle.getContext("2d");
+      const canvasEle = canvas.current;
+      canvasEle.width = canvasEle.clientWidth;
+      canvasEle.height = canvasEle.clientHeight;
+    
+      // get context of the canvas
+      ctx = canvasEle.getContext("2d");
 
-        
       let width = window.innerHeight * 0.8;
       let height = window.innerWidth;
       let fracH = Math.trunc(height / 34);
@@ -281,8 +280,14 @@ const FloorFour = () => {
         drawFillRect({ x: 10 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW }, { backgroundColor: '#cd8500' });
       }
       
+      // board 470
       const re2Info = { x: 8.6 * fracH + offsetX, y: 11 * fracW, w: 0.05 * fracH, h: 6 * fracW };
       drawFillRect(re2Info, { backgroundColor: '#C4CACD' });
+
+      drawFillRect({ x: 9 * fracH + offsetX, y: 11 * fracW, w: 0.05 * fracH, h: 6 * fracW }, { backgroundColor: '#C4CACD' });
+      drawFillRect({ x: 8.8 * fracH + offsetX, y: 0.2 * fracW, w: 0.05 * fracH, h: 6 * fracW }, { backgroundColor: '#C4CACD' });
+      drawFillRect({ x: 9 * fracH + offsetX, y: 0.2 * fracW, w: 0.05 * fracH, h: 6 * fracW }, { backgroundColor: '#C4CACD' });
+
 
       // stairs - left
       drawLine({x: 0 * fracH, y: 8.2 * fracW, x1: -4.6 * fracH, y1: 8.2 * fracW }, {color: 'blue', width: 3})
