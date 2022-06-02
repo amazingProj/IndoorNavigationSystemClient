@@ -9,6 +9,14 @@ const TrackedUsers = (props) => {
   const ENDPOINT = "http://127.0.0.1:4001";
   const [response, setResponse] = useState("");
   const usersFloor = props.floor
+  const [users, updateUsers] = useState([
+    {x: 16, y: 5, name: "Asaf", battery: 60, SOS: "מצוקה"}
+  ]);
+
+  const addUpdateUser = () =>
+  {
+
+  }
 
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
@@ -24,8 +32,8 @@ const TrackedUsers = (props) => {
       let ID = wifiInformation["ID"];
       let battery = wifiInformation["BATTERY"];
       let isAlarmed = wifiInformation["ISAlarmed"];
-      
-      React.createElement (<User x={x} y={y} name={ID} battery={battery} SOS={isAlarmed} />)
+      //let jsonObj = 
+      this.setState();
       
     });
   }, []);
@@ -33,7 +41,11 @@ const TrackedUsers = (props) => {
   return (
     <div>
       <div ref={userRef}>
-      
+        <div>
+          {
+            users.map(user => <User x={user.x} y={user.y} name={user.ID} battery={user.battery} SOS={user.isAlarmed}>\</User>)
+          }
+        </div>
       </div>
     </div>
     
