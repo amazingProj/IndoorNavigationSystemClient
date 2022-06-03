@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import './style/canvas.css';
 import accessPointImage from './style/images/accessPoint.svg'
+import TrackedUsers from "./users";
 
 const FloorFive = () => {
     const canvas = useRef();
@@ -258,7 +259,8 @@ ctx.fillText(i, 0, i * fracW - 2);
 
     return (
         <div>
-            <canvas ref={canvas}></canvas>
+        <canvas ref={canvas}></canvas>
+        <TrackedUsers floor="5" />
         </div>
     );
 }

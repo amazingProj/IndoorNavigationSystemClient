@@ -13,6 +13,9 @@ const TrackedUsers = (props) => {
   const usersFloor = props.floor
   const [users, updateUsers] = useState([]);
   
+  const userNames = {'94:B9:7E:FA:92:14': "אסף הלל", "2023": "אליה קופלר"}
+
+
   const addUpdateUser = () =>
   {
 
@@ -29,21 +32,22 @@ const TrackedUsers = (props) => {
       let yCor = wifiInformation["y"];
       let zCor = wifiInformation["z"];
       let floorLevel = wifiInformation["FloorLevel"];
+      console.log(floorLevel)
       let ID = wifiInformation["ID"];
+      let userName = userNames[ID]
+      console.log(userName)
       let batteryInfo = wifiInformation["BATTERY"];
       let isAlarmed = wifiInformation["ISAlarmed"];
-      let dict = { index: count.current, x: xCor, y: yCor, name: "אסף הלל", battery: batteryInfo, SOS: isAlarmed };
+      let dict = { index: count.current, x: xCor, y: yCor, name: userName, battery: batteryInfo, SOS: isAlarmed };
       count.current += 1;
-      if (!unmounted)
+
+      if (floorLevel == props.floor)
       {
-        updateUsers(users.concat(dict));
+        if (!unmounted)
+        {
+          updateUsers(users.concat(dict));
+        }
       }
-     
-      //return () =>
-      //{
-      //  unmounted = true;
-      //}
-      
     });
   }, []);
  
@@ -52,7 +56,7 @@ const TrackedUsers = (props) => {
       <div ref={userRef}>
         <div>
           {
-            users.map(user => <User key={user.index} x={user.x} y={user.y} name={user.ID} battery={user.battery} SOS={user.isAlarmed}></User>)
+            users.map(user => <User key={user.index} x={user.x} y={user.y} name={user.name} battery={user.battery} SOS={user.SOS}></User>)
           }
         </div>
       </div>

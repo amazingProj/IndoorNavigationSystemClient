@@ -6,12 +6,12 @@ const User = (props) => {
   const userRef = useRef();
   const batteryRef = useRef();
   const textRef = useRef();
+
   const [response, setResponse] = useState("");
   let basePercentLeft = 14;
   let basePercentTop = 13;
 
   useEffect(() => {
-    textRef.current.textContent = props.name
     batteryRef.current.style.height = props.battery;
     textRef.current.innerText = props.battery;
     userRef.current.style.left = basePercentLeft + props.x * 2.94 + "%";
@@ -35,7 +35,7 @@ const User = (props) => {
                 <div></div>
             </div>
           </div>
-          <div className="emergency"></div>
+          <div className="emergency">{props.SOS}</div>
         </div>
       </div>
       
