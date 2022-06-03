@@ -38,14 +38,14 @@ const TrackedUsers = (props) => {
       console.log(userName)
       let batteryInfo = wifiInformation["BATTERY"];
       let isAlarmed = wifiInformation["ISAlarmed"];
-      let dict = { index: count.current, x: xCor, y: yCor, name: userName, battery: batteryInfo, SOS: isAlarmed };
+      let dict = { index: count.current, id: ID, x: xCor, y: yCor, name: userName, battery: batteryInfo, SOS: isAlarmed };
       count.current += 1;
-
+      
       //if (floorLevel == props.floor)
       //{
         if (!unmounted)
         {
-          updateUsers(oldArray => [...oldArray, dict]);
+          updateUsers(oldArray => [...oldArray.slice(1), dict]);
         }
       //}
     }
