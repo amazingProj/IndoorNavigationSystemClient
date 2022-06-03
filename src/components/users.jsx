@@ -41,14 +41,15 @@ const TrackedUsers = (props) => {
       let dict = { index: count.current, x: xCor, y: yCor, name: userName, battery: batteryInfo, SOS: isAlarmed };
       count.current += 1;
 
-      if (floorLevel == props.floor)
-      {
+      //if (floorLevel == props.floor)
+      //{
         if (!unmounted)
         {
-          updateUsers(users.concat(dict));
+          updateUsers(oldArray => [...oldArray, dict]);
         }
-      }
-    });
+      //}
+    }
+  );
   }, []);
  
   return (
