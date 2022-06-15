@@ -2,9 +2,9 @@
   "files": {
     "main.css": "/static/css/main.708b627c.css",
     "main.js": "/static/js/main.ad2df8a0.js",
-    "index.html": "/index.html",
     "static/media/bullseye.svg": "/static/media/bullseye.8833474bf861b93bdae1ffcea9a17637.svg",
     "static/media/accessPoint.svg": "/static/media/accessPoint.5a053c84f84bd3f28a3885c807f7406f.svg",
+    "index.html": "/index.html",
     "main.708b627c.css.map": "/static/css/main.708b627c.css.map",
     "main.ad2df8a0.js.map": "/static/js/main.ad2df8a0.js.map"
   },
