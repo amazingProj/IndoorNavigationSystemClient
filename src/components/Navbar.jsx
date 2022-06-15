@@ -20,9 +20,9 @@ const Navbar = () => {
         <div className='flex items-center'>
           <h1 className='text-3xl font-bold mr-4 sm:text-4xl'>מפת בניין לעו.</h1>
           <ul className='hidden md:flex'>
-          <li className='hover:bg-zinc-300 mt-4'><Link to={'/floor3'}>קומה 3</Link></li>
-          <li className='hover:bg-zinc-300 mt-4'><Link to={'/floor4'}>קומה 4</Link></li>
-          <li className='hover:bg-zinc-300 mt-4'><Link to={'/floor5'}>קומה 5</Link></li>
+          <li className='hover:bg-zinc-300 mt-2'><Link to={'/floor3'}>קומה 3</Link></li>
+          <li className='hover:bg-zinc-300 mt-2'><Link to={'/floor4'}>קומה 4</Link></li>
+          <li className='hover:bg-zinc-300 mt-2'><Link to={'/floor5'}>קומה 5</Link></li>
           </ul>
         </div>
         <div className='md:hidden mr-4' onClick={handleClick}>
