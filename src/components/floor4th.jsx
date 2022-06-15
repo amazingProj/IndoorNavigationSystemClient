@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import './style/canvas.css';
 import accessPointImage from './style/images/accessPoint.svg'
 import TrackedUsers from "./users";
