@@ -12,8 +12,9 @@ const Navbar = () => {
   
     const handleClick = () => setNav(!nav)
 
-    const handleClose =()=> setDropdown(!dropdown)
+    const handleClose = ()=> setDropdown(!dropdown)
 
+  
   return (
     <div className='w-screen h-[60px] z-10 bg-zinc-200 fixed drop-shadow-lg'>
       <div className='px-2 flex justify-between items-center w-full h-full'>
