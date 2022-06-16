@@ -115,6 +115,19 @@ const FloorFour = () => {
       drawLine({x: 8.8 * fracH, y: 8.8 * fracW, x1: 10 * fracH, y1: 8.8 * fracW }, colorBorder)
       drawLine({x: 11.6 * fracH, y: 8.8 * fracW, x1: 16.5 * fracH, y1: 8.8 * fracW }, colorBorder)
       
+      for (let j = 0; j < 8; ++j)
+      {
+        for (let i = 0; i < 8; ++i)
+        {
+          drawFillRect({ x: (10.3 + 0.8 * j) * fracH + offsetX, y: (1.1 + 0.7 * i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
+        }
+      }
+      for (let i = 0; i < 8; ++i)
+      {
+        drawFillRect({ x: (10 + 0.8 * i) * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW }
+          , TableBackground);
+      
+      }
     // class 440
       ctx.font = "12px Arial";
       ctx.fillStyle = "#00000F";
@@ -224,28 +237,21 @@ const FloorFour = () => {
       drawLine({x: 15.2 * fracH, y: 17.4 * fracW, x1: 24 * fracH, y1: 17.4 * fracW }, colorBorder)
       // right-down- to top
       drawLine({x: 24 * fracH, y: 17.4 * fracW, x1: 24 * fracH, y1: 10.8 * fracW }, colorBorder)
-      ctx.fillText("חדרי מרצים", 23 * fracH , 15 * fracW);
-      
 
+      
+    
+      // class 450
       for (let j = 0; j < 6; ++j)
       {
-        for (let i = 0; i < 6; ++i)
+        for (let i = 0; i < 7; ++i)
         {
-          drawFillRect({ x: (10.6 + j) * fracH + offsetX, y: (1.1 + i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
-        }
-      }
-      // class 450
-      for (let j = 0; j < 5; ++j)
-      {
-        for (let i = 0; i < 5; ++i)
-        {
-          //drawFillRect({ x: (10.6 + j) * fracH + offsetX, y: (11.8 + i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
+          drawFillRect({ x: (10.3 + 0.8 * j) * fracH + offsetX, y: (11.7 + 0.7 * i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
         }
       }
 
-      for (let i = 0; i < 5; ++i)
+      for (let i = 0; i < 6; ++i)
       {
-        //drawFillRect({ x: 10 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW }, { backgroundColor: '#cd8500' });
+        drawFillRect({ x: (10 + 0.8 * i) * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW }, { backgroundColor: '#cd8500' });
       }
       
       // end of class 450
@@ -264,19 +270,8 @@ const FloorFour = () => {
           }
           
         }
-      }
-
+    }
     
-      
-
-
-      for (let i = 0; i < 6; ++i)
-      {
-        drawFillRect({ x: (10 + i) * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW }
-          , TableBackground);
-      
-      }
-
       for (let p = 0; p < 6; p += 1.2)
       {
         
@@ -321,12 +316,6 @@ const FloorFour = () => {
 
       drawLine({x: 24 * fracH, y: 8.2 * fracW, x1: 28.6 * fracH, y1: 8.2 * fracW }, {color: 'blue', width: 3})
       drawLine({x: 28.6 * fracH, y: 8.2 * fracW, x1: 28.6 * fracH, y1: 10.2 * fracW }, {color: 'blue', width: 3})
-      
-      ctx.font = "12px Arial";
-      ctx.fillStyle = "#00000F";
-      ctx.textAlign = "right"; 
-
-      ctx.fillText("ברזיה", 22.2 * fracH , 8.9 * fracW);
     }, []);
     
     useEffect(() => {

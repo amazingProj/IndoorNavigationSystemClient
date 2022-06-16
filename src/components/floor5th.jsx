@@ -77,7 +77,7 @@ const FloorFive = () => {
         for (let j = 0; j < 7; j++)
         {
           
-          drawFillRect({ x: (0.2 + j * 0.6) * fracH + offsetX, y: (i + 1.2) * fracW, w: 0.4 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
+          drawFillRect({ x: (0.2 + j * 0.6) * fracH + offsetX, y: (i + 1.1) * fracW, w: 0.4 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
         }
         for (let j = 0; j < 5; ++j)
         {
