@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import bullseye from "../images/bullseye.svg"
 import './style/user.css'
 
 const User = (props) => {

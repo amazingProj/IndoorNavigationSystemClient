@@ -6,6 +6,8 @@ import TrackedUsers from "./users";
 const FloorFour = () => {
   const canvas = useRef();
   let ctx = null;
+  const TableBackground = { backgroundColor: '#cd8500' };
+
 
   const drawFillRect = (info, style = {}) => {
     const { x, y, w, h } = info;
@@ -16,8 +18,6 @@ const FloorFour = () => {
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(x + offsetX, y + offsetY, w, h);
   }
-
-
 
   const drawLine = (info, style = {}) => {
       const { x, y, x1, y1 } = info;
@@ -46,7 +46,7 @@ const FloorFour = () => {
     }
     
 
-    useEffect(() => {
+  useEffect(() => {
         // dynamically assign the width and height to canvas
       const canvasEle = canvas.current;
       canvasEle.width = canvasEle.clientWidth;
@@ -79,11 +79,32 @@ const FloorFour = () => {
       drawLine({x: 8.8 * fracH, y: 0, x1: 8.8 * fracH, y1: 8.8 * fracW }, {color: 'black', width: 3})
       drawLine({x: 0, y: 8.8 * fracW, x1: 2 * fracH, y1: 8.8 * fracW }, colorBorder)
       drawLine({x: 3.6 * fracH, y: 8.8 * fracW, x1: 8.8 * fracH, y1: 8.8 * fracW }, colorBorder)
+      
+      /// class 460
+
       ctx.font = "22px Arial";
       ctx.fillStyle = "#00000F";
       ctx.textAlign = "right";      
       ctx.fillText("כיתה 460", 5 * fracH + offsetX, 8 * fracW);
+      
+      for (let j = 0; j < 7; ++j)
+      {
+        for (let i = 0; i < 10; ++i)
+        {
+          drawFillRect({ x: (1.2 + j) * fracH + offsetX, y: (1.1 + 0.6 * i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
+        }
+      }
 
+      for (let i = 0; i < 7; ++i)
+      {
+
+        drawFillRect({ x: (1.3 + i) * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6.5 * fracW }
+          , TableBackground);
+
+      }
+    
+      // end  of class 460
+    
       drawLine({x: 0 * fracH, y: 1 * fracW, x1: 0, y1: 8.8 * fracW }, colorBorder)
       drawLine({x: 0.5 * fracH, y: 0, x1: 16.5 * fracH, y1: 0 }, colorBorder)
       drawLine({x: 0 * fracH, y: 1 * fracW, x1: 0, y1: 8.8 * fracW }, colorBorder)
@@ -93,11 +114,14 @@ const FloorFour = () => {
       // class 440 near door
       drawLine({x: 8.8 * fracH, y: 8.8 * fracW, x1: 10 * fracH, y1: 8.8 * fracW }, colorBorder)
       drawLine({x: 11.6 * fracH, y: 8.8 * fracW, x1: 16.5 * fracH, y1: 8.8 * fracW }, colorBorder)
-      ctx.font = "22px Arial";
+      
+    // class 440
+      ctx.font = "12px Arial";
       ctx.fillStyle = "#00000F";
       ctx.textAlign = "right";      
       ctx.fillText("כיתה 440", 14 * fracH + offsetX, 8 * fracW);
 
+    // end of class 440
       // left-down
       drawLine({x: 0, y: 10.8 * fracW, x1: 0, y1: 17.5 * fracW }, colorBorder)
       drawLine({x: 0, y: 17.4 * fracW, x1: 8.7 * fracH, y1: 17.4 * fracW }, colorBorder)
@@ -201,13 +225,7 @@ const FloorFour = () => {
       // right-down- to top
       drawLine({x: 24 * fracH, y: 17.4 * fracW, x1: 24 * fracH, y1: 10.8 * fracW }, colorBorder)
       ctx.fillText("חדרי מרצים", 23 * fracH , 15 * fracW);
-      for (let j = 0; j < 6; ++j)
-      {
-        for (let i = 0; i < 6; ++i)
-        {
-          drawFillRect({ x: (2.6 + j) * fracH + offsetX, y: (1.1 + i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
-        }
-      }
+      
 
       for (let j = 0; j < 6; ++j)
       {
@@ -216,14 +234,21 @@ const FloorFour = () => {
           drawFillRect({ x: (10.6 + j) * fracH + offsetX, y: (1.1 + i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
         }
       }
-      
+      // class 450
       for (let j = 0; j < 5; ++j)
       {
         for (let i = 0; i < 5; ++i)
         {
-          drawFillRect({ x: (10.6 + j) * fracH + offsetX, y: (11.8 + i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
+          //drawFillRect({ x: (10.6 + j) * fracH + offsetX, y: (11.8 + i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
         }
       }
+
+      for (let i = 0; i < 5; ++i)
+      {
+        //drawFillRect({ x: 10 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW }, { backgroundColor: '#cd8500' });
+      }
+      
+      // end of class 450
 
       for (let j = 0; j < 5; ++j)
       {
@@ -241,15 +266,8 @@ const FloorFour = () => {
         }
       }
 
-      let TableBackground = { backgroundColor: '#cd8500' };
-
-      for (let i = 0; i < 6; ++i)
-      {
-
-        drawFillRect({ x: (2 + i) * fracH + offsetX, y: 1 * fracW, w: 0.5 * fracH, h: 6 * fracW }
-          , TableBackground);
-
-      }
+    
+      
 
 
       for (let i = 0; i < 6; ++i)
@@ -276,10 +294,7 @@ const FloorFour = () => {
         }
       }
 
-      for (let i = 0; i < 5; ++i)
-      {
-        drawFillRect({ x: 10 * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW }, { backgroundColor: '#cd8500' });
-      }
+      
       
       // board 470
       const re2Info = { x: 8.6 * fracH + offsetX, y: 11 * fracW, w: 0.05 * fracH, h: 6 * fracW };
