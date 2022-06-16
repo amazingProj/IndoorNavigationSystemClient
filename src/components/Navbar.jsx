@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import MapIcon from './style/images/map_icon.png'
 import {
   Link,
 } from "react-router-dom";
@@ -17,7 +18,10 @@ const Navbar = () => {
     <div className='w-screen h-[60px] z-10 bg-zinc-200 fixed drop-shadow-lg'>
       <div className='px-2 flex justify-between items-center w-full h-full'>
         <div className='flex items-center'>
-          <h1 className='text-3xl font-bold mr-4 sm:text-4xl'>מפת בניין לעו.</h1>
+          <img className="object-fill h-8 w-12" alt="icon" src={MapIcon} />
+          <h1 className='text-3xl font-bold mr-4 sm:text-4xl'>
+            מפת בניין לעו.
+          </h1>
           <ul className='hidden md:flex'>
             <div className="relative inline-block text-left mt-4 ml-2 mr-2">
               <div>
