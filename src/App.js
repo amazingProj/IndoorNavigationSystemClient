@@ -26,6 +26,7 @@ function App() {
           <Route path="/floor5">
             <FloorFive />
           </Route>
+          <Route path="/manageUsers"></Route>
         </Switch>
       </BrowserRouter>
     </div>

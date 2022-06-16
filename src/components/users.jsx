@@ -11,7 +11,7 @@ const TrackedUsers = (props) => {
   const ENDPOINT = "http://127.0.0.1:4001";
   var [users, updateUsers] = useState([]);
   
-  const userNames = {'94:B9:7E:FA:92:14': "אסף הלל", "2023": "אליה קופלר"}
+  const userNames = {'94:B9:7E:FA:92:14': "אסף הלל", "AssafAndroid1010": "אסף אנדרואיד"}
 
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);

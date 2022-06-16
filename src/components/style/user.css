@@ -49,3 +49,11 @@
     text-align: center;
 }
 
+.user {
+    text-align: right;
+    background-repeat: no-repeat;
+    position: absolute;
+    background-image: url(./images/bullseye.svg);
+  }
+
+

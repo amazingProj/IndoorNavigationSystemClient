@@ -241,17 +241,17 @@ const FloorFour = () => {
       
     
       // class 450
-      for (let j = 0; j < 6; ++j)
+      for (let j = 0; j < 5; ++j)
       {
         for (let i = 0; i < 7; ++i)
         {
-          drawFillRect({ x: (10.3 + 0.8 * j) * fracH + offsetX, y: (11.7 + 0.7 * i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
+          drawFillRect({ x: (11.3 + 0.8 * j) * fracH + offsetX, y: (11.7 + 0.7 * i) * fracW, w: 0.3 * fracH, h: 0.5 * fracW }, { backgroundColor: 'black' });
         }
       }
 
-      for (let i = 0; i < 6; ++i)
+      for (let i = 0; i < 5; ++i)
       {
-        drawFillRect({ x: (10 + 0.8 * i) * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW }, { backgroundColor: '#cd8500' });
+        drawFillRect({ x: (11 + 0.8 * i) * fracH + offsetX, y: 11.5 * fracW, w: 0.5 * fracH, h: 5 * fracW }, { backgroundColor: '#cd8500' });
       }
       
       // end of class 450
