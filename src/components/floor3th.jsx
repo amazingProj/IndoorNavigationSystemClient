@@ -53,6 +53,8 @@ const FloorThree = (props) => {
     ctx.stroke();
   };
 
+  const drawCircle = () => {};
+
   const drawLinesInMeters = () => {
     /*
     let width = window.innerHeight * 0.8;
