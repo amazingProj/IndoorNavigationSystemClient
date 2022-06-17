@@ -8,8 +8,16 @@ const FloorThree = (props) => {
   let ctx = null;
   const offsetX = 0.025 * window.innerWidth;
   const offsetY = 0.01 * window.innerHeight;
-  const colorBorder = { color: "black", width: 5 };
-  const colorBorderThick = { color: "black", width: 2 };
+  const colorBorder = { color: "black", width: 1 };
+  const colorBorderThick = { color: "black", width: 1 };
+  const textFont = 0.01 * window.innerWidth + "px Arial";
+  const textColor = "#00000F";
+  const textAlign = "right";
+  const width = window.innerHeight * 0.8;
+  const height = window.innerWidth;
+  const fracH = height / 34;
+  const fracW = width / 17;
+  const xOffset = 0.025 * window.innerWidth;
 
   const drawFillRect = (info, style = {}) => {
     const { x, y, w, h } = info;
@@ -86,12 +94,6 @@ const FloorThree = (props) => {
     */
   };
 
-  let width = window.innerHeight * 0.8;
-  let height = window.innerWidth;
-  let fracH = Math.trunc(height / 34);
-  let fracW = Math.trunc(width / 17);
-  let xOffset = 0.025 * window.innerWidth;
-
   useEffect(() => {
     let offsetX = 4.1 * fracH;
     let offsetY = 0.01 * window.innerHeight;
@@ -110,7 +112,9 @@ const FloorThree = (props) => {
       false
     );
     image.src = accessPointImage;
-
+    ctx.font = textFont;
+    ctx.fillStyle = textColor;
+    ctx.textAlign = textAlign;
     drawLine(
       { x: 9.5 * fracH, y: 0, x1: 9.5 * fracH, y1: 7.1 * fracW },
       { color: "black", width: 3 }
@@ -123,9 +127,7 @@ const FloorThree = (props) => {
       { x: 3.6 * fracH, y: 7.1 * fracW, x1: 9.5 * fracH, y1: 7.1 * fracW },
       colorBorder
     );
-    ctx.font = "12px Arial";
-    ctx.fillStyle = "#00000F";
-    ctx.textAlign = "right";
+
     ctx.fillText("כיתה 325", 5 * fracH + offsetX, 3.7 * fracW + offsetY);
     ctx.fillText("כיתה 315", 18 * fracH + offsetX, 3.7 * fracW + offsetY);
 
@@ -167,9 +169,7 @@ const FloorThree = (props) => {
       { x: 13.5 * fracH, y: 6 * fracW, x1: 15.5 * fracH, y1: 6 * fracW },
       { color: "black", width: 3 }
     );
-    ctx.font = "12px Arial";
-    ctx.fillStyle = "#00000F";
-    ctx.textAlign = "right";
+
     // class 302 label label302
     ctx.fillText("כיתה", 12 * fracH + offsetX, 3 * fracW);
     ctx.fillText("302", 12 * fracH + offsetX, 3.7 * fracW);
@@ -206,20 +206,12 @@ const FloorThree = (props) => {
       colorBorder
     );
 
-    ctx.font = "12px Arial";
-    ctx.fillStyle = "#00000F";
-    ctx.textAlign = "right";
     ctx.fillText("מדרגות", 4.3 * fracH, 11.5 * fracW);
     ctx.fillText("עולות", 4.3 * fracH, 12 * fracW);
     ctx.fillText("מדרגות", 2.3 * fracH, 11.5 * fracW);
     ctx.fillText("יורדות", 2.3 * fracH, 12 * fracW);
 
-    ctx.font = "12px Arial";
-    ctx.fillStyle = "#00000F";
-    ctx.textAlign = "right";
     ctx.fillText("מדרגות/יציאה", 31.7 * fracH, 10 * fracW);
-
-    let insideWallsTheme = { color: "black", width: 3 };
 
     // wall class
     drawLine(
@@ -511,9 +503,6 @@ const FloorThree = (props) => {
 
     // room 310 room310
 
-    ctx.font = "12px Arial";
-    ctx.fillStyle = "#00000F";
-    ctx.textAlign = "right";
     let align = 18 + 5;
     ctx.fillText("310", align * fracH, 14 * fracW);
     ctx.fillText("מעבדת", align * fracH, 14.5 * fracW);
@@ -649,9 +638,6 @@ const FloorThree = (props) => {
       { color: "black", width: 3 }
     );
 
-    ctx.font = "12px Arial";
-    ctx.fillStyle = "#00000F";
-    ctx.textAlign = "right";
     ctx.fillText("מדרגות", 30.2 * fracH, 11.5 * fracW);
     ctx.fillText("עולות", 30.2 * fracH, 12 * fracW);
     ctx.fillText("מדרגות", 33.3 * fracH, 11.5 * fracW);
