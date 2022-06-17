@@ -402,6 +402,7 @@ const FloorFive = () => {
   }, []);
 
   useEffect(() => {
+    /*
     let width = window.innerHeight * 0.8;
     let height = window.innerWidth;
     let fracH = Math.trunc(height / 34);
@@ -427,7 +428,7 @@ const FloorFive = () => {
       drawLineWithoutOffset({ x: 0, y: i * fracW, x1: height, y1: i * fracW });
       ctx.textAlign = "left";
       ctx.fillText(i, 0, i * fracW - 2);
-    }
+    }*/
   }, []);
 
   return (
