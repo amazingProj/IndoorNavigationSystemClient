@@ -7,56 +7,52 @@ const FloorThree = () => {
   
     const canvas = useRef();
     let ctx = null;
-
+    const offsetX = 0.025 * window.innerWidth;
+    const offsetY = 0.01 * window.innerHeight;
+    const colorBorder = { color: 'black', width: 5 };
+    const colorBorderThick = {color: 'black', width: 2};
+  
     const drawFillRect = (info, style = {}) => {
       const { x, y, w, h } = info;
       const { backgroundColor = 'black' } = style;
-      let offsetX = 0.025 * window.innerWidth;
-      let offsetY = 0.01 * window.innerHeight;
       ctx.beginPath();
       ctx.fillStyle = backgroundColor;
       ctx.fillRect(x + offsetX, y + offsetY, w, h);
     }
 
-
-
     const drawLine = (info, style = {}) => {
-        const { x, y, x1, y1 } = info;
-        const { color = 'black', width = 1 } = style;
-        let height = window.innerWidth;
-        let fracH = Math.trunc(height / 34);
-        let offsetX = 5 * fracH;
-        let offsetY = 0.01 * window.innerHeight;
-        ctx.beginPath();
-        ctx.moveTo(x + offsetX, y + offsetY);
-        ctx.lineTo(x1 + offsetX, y1 + offsetY);
-        ctx.strokeStyle = color;
-        ctx.lineWidth = width;
-        ctx.stroke();
-      }
+      const { x, y, x1, y1 } = info;
+      const { color = 'black', width = 1 } = style;
+      let height = window.innerWidth;
+      let fracH = Math.trunc(height / 34);
+      let offsetX = 5 * fracH;
+      let offsetY = 0.01 * window.innerHeight;
+      ctx.beginPath();
+      ctx.moveTo(x + offsetX, y + offsetY);
+      ctx.lineTo(x1 + offsetX, y1 + offsetY);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.stroke();
+    }
 
-      const drawLineWithoutOffset = (info, style = {}) => {
-        const { x, y, x1, y1 } = info;
-        const { color = 'black', width = 1 } = style;
-        ctx.beginPath();
-        ctx.moveTo(x , y);
-        ctx.lineTo(x1 , y1);
-        ctx.strokeStyle = color;
-        ctx.lineWidth = width;
-        ctx.stroke();
-      }
+    const drawLineWithoutOffset = (info, style = {}) => {
+      const { x, y, x1, y1 } = info;
+      const { color = 'black', width = 1 } = style;
+      ctx.beginPath();
+      ctx.moveTo(x , y);
+      ctx.lineTo(x1 , y1);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.stroke();
+    }
     
-
     useEffect(() => {
-        // dynamically assign the width and height to canvas
-        const canvasEle = canvas.current;
-        canvasEle.width = canvasEle.clientWidth;
-        canvasEle.height = canvasEle.clientHeight;
-     
-        // get context of the canvas
-        ctx = canvasEle.getContext("2d");
+      // dynamically assign the width and height to canvas
+      const canvasEle = canvas.current;
+      canvasEle.width = canvasEle.clientWidth;
+      canvasEle.height = canvasEle.clientHeight;
+      ctx = canvasEle.getContext("2d");
 
-      
       let width = window.innerHeight * 0.8;
       let height = window.innerWidth;
       let fracH = Math.trunc(height / 34);
@@ -64,16 +60,16 @@ const FloorThree = () => {
       let offsetX = 4.1 * fracH;
       let offsetY = 0.01 * window.innerHeight;
       let xOffset = 0.025 * window.innerWidth;
+
+
       let image = new Image();
       image.addEventListener('load', function () {
         ctx.drawImage(image, xOffset + 17.5 * fracH, offsetY + 5.5 * fracW)
         ctx.drawImage(image, xOffset + 17.5 * fracH, offsetY + 16 * fracW)
       }, false);
-    
       image.src = accessPointImage;
       
-      let colorBorder = { color: 'black', width: 5 };
-      let colorBorderThick = {color: 'black', width: 2};
+      
       drawLine({x: 9.5 * fracH, y: 0, x1: 9.5 * fracH, y1: 7.1 * fracW }, {color: 'black', width: 3})
       drawLine({x: 0, y: 7.1 * fracW, x1: 2 * fracH, y1: 7.1 * fracW }, colorBorder)
       drawLine({x: 3.6 * fracH, y: 7.1 * fracW, x1: 9.5 * fracH, y1: 7.1 * fracW }, colorBorder)
