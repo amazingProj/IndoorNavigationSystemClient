@@ -18,6 +18,9 @@ const FloorThree = (props) => {
   const fracH = height / 34;
   const fracW = width / 17;
   const xOffset = 0.025 * window.innerWidth;
+  const henceColor = { color: "blue", width: 3 };
+  const doorThickness = 1;
+  const boardColor = { backgroundColor: "#C4CACD" };
 
   const drawFillRect = (info, style = {}) => {
     const { x, y, w, h } = info;
@@ -119,7 +122,7 @@ const FloorThree = (props) => {
     ctx.textAlign = textAlign;
     drawLine(
       { x: 9.5 * fracH, y: 0, x1: 9.5 * fracH, y1: 7.1 * fracW },
-      { color: "black", width: 3 }
+      colorBorder
     );
     drawLine(
       { x: 0, y: 7.1 * fracW, x1: 2 * fracH, y1: 7.1 * fracW },
@@ -165,11 +168,11 @@ const FloorThree = (props) => {
 
     drawLine(
       { x: 9.5 * fracH, y: 6 * fracW, x1: 11.5 * fracH, y1: 6 * fracW },
-      { color: "black", width: 3 }
+      colorBorder
     );
     drawLine(
       { x: 13.5 * fracH, y: 6 * fracW, x1: 15.5 * fracH, y1: 6 * fracW },
-      { color: "black", width: 3 }
+      colorBorder
     );
 
     // class 302 label label302
@@ -184,7 +187,7 @@ const FloorThree = (props) => {
     );
     drawLine(
       { x: 9.5 * fracH, y: 10.8 * fracW, x1: 9.5 * fracH, y1: 17.5 * fracW },
-      { color: "black", width: 3 }
+      colorBorder
     );
     drawLine(
       { x: 1 * fracH, y: 10.8 * fracW, x1: 5 * fracH, y1: 10.8 * fracW },
@@ -251,7 +254,7 @@ const FloorThree = (props) => {
 
     // left-top side door
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = doorThickness;
     ctx.fillStyle = "#00000F";
     ctx.arc(
       5.4 * fracH,
@@ -264,12 +267,12 @@ const FloorThree = (props) => {
     ctx.stroke();
     drawLine(
       { x: -0.25 * fracH, y: 10.8 * fracW, x1: 0 * fracH, y1: 10.8 * fracW },
-      { color: "black", width: 2 }
+      colorBorder
     );
 
     // left-down side door
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = doorThickness;
     ctx.fillStyle = "#00000F";
     ctx.arc(
       5.4 * fracH,
@@ -282,23 +285,23 @@ const FloorThree = (props) => {
     ctx.stroke();
     drawLine(
       { x: -0.25 * fracH, y: 8.8 * fracW, x1: 0 * fracH, y1: 8.8 * fracW },
-      { color: "black", width: 2 }
+      colorBorder
     );
 
     // right-top side door
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = doorThickness;
     ctx.fillStyle = "#00000F";
     ctx.arc(28.7 * fracH, 9 * fracW, 1 * fracW, 0, Math.PI / 2, false);
     ctx.stroke();
     drawLine(
       { x: 24 * fracH, y: 8.8 * fracW, x1: 24.4 * fracH, y1: 8.8 * fracW },
-      { color: "black", width: 2 }
+      colorBorder
     );
 
     // right-down side door
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = doorThickness;
     ctx.fillStyle = "#00000F";
     ctx.arc(
       28.7 * fracH,
@@ -311,7 +314,7 @@ const FloorThree = (props) => {
     ctx.stroke();
     drawLine(
       { x: 24 * fracH, y: 10.8 * fracW, x1: 24.4 * fracH, y1: 10.8 * fracW },
-      { color: "black", width: 2 }
+      colorBorder
     );
 
     // right-top
@@ -396,7 +399,7 @@ const FloorThree = (props) => {
         w: 0.05 * fracH,
         h: 5 * fracW,
       },
-      { backgroundColor: "#C4CACD" }
+      boardColor
     );
 
     // end of class 325
@@ -451,7 +454,7 @@ const FloorThree = (props) => {
 
     drawFillRect(
       { x: 9 * fracH + offsetX, y: 0.4 * fracW, w: 0.05 * fracH, h: 5 * fracW },
-      { backgroundColor: "#C4CACD" }
+      boardColor
     );
 
     // end of class 325
@@ -471,7 +474,7 @@ const FloorThree = (props) => {
     );
 
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = doorThickness;
     ctx.fillStyle = "#00000F";
     ctx.arc(10.7 * fracH, 11 * fracW, 1 * fracW, 0, Math.PI / 2, false);
     ctx.stroke();
@@ -482,11 +485,11 @@ const FloorThree = (props) => {
         w: 0.05 * fracH,
         h: 5 * fracW,
       },
-      { backgroundColor: "#C4CACD" }
+      boardColor
     );
 
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = doorThickness;
     ctx.fillStyle = "#00000F";
     ctx.fillText("חדר", 13 * fracH, 15 * fracW);
     ctx.fillText("מחשבים", 13 * fracH, 15.5 * fracW);
@@ -506,6 +509,7 @@ const FloorThree = (props) => {
     // room 310 room310
 
     let align = 18 + 5;
+    ctx.fillStyle = "#00000F";
     ctx.fillText("310", align * fracH, 14 * fracW);
     ctx.fillText("מעבדת", align * fracH, 14.5 * fracW);
     ctx.fillText("אלקטרו-אופטיקה", align * fracH, 15 * fracW);
@@ -514,7 +518,7 @@ const FloorThree = (props) => {
 
     // entrance lobby
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = doorThickness;
     ctx.fillStyle = "#00000F";
     ctx.arc(18 * fracH, 16.1 * fracW, 1 * fracW, 0, Math.PI / 2, false);
     ctx.stroke();
@@ -536,7 +540,7 @@ const FloorThree = (props) => {
 
     // 302 class door door302
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = doorThickness;
     ctx.fillStyle = "#00000F";
     ctx.arc(26.2 * fracH, 6.3 * fracW, 1 * fracW, 0, Math.PI / 2, false);
     ctx.stroke();
@@ -599,45 +603,42 @@ const FloorThree = (props) => {
     }
 
     // 302 board
-    drawFillRect(
-      {
-        x: 9.65 * fracH + offsetX,
-        y: 0.4 * fracW,
-        w: 0.05 * fracH,
-        h: 5 * fracW,
-      },
-      { backgroundColor: "#C4CACD" }
-    );
+    drawFillRect({
+      x: 9.65 * fracH + offsetX,
+      y: 0.4 * fracW,
+      w: 0.05 * fracH,
+      h: 5 * fracW,
+    });
 
     // stairs - left
     drawLine(
       { x: 0 * fracH, y: 8.2 * fracW, x1: -4.6 * fracH, y1: 8.2 * fracW },
-      { color: "blue", width: 3 }
+      henceColor
     );
     drawLine(
       { x: -4.6 * fracH, y: 8.2 * fracW, x1: -4.6 * fracH, y1: 10.2 * fracW },
-      { color: "blue", width: 3 }
+      henceColor
     );
 
     drawLine(
       { x: 27 * fracH, y: 12.5 * fracW, x1: 27 * fracH, y1: 10.5 * fracW },
-      { color: "black", width: 3 }
+      colorBorder
     );
     drawLine(
       { x: 27 * fracH, y: 12.5 * fracW, x1: 25.5 * fracH, y1: 12.5 * fracW },
-      { color: "black", width: 3 }
+      colorBorder
     );
     drawLine(
       { x: 25.5 * fracH, y: 12.5 * fracW, x1: 25.5 * fracH, y1: 10.5 * fracW },
-      { color: "black", width: 3 }
+      colorBorder
     );
     drawLine(
       { x: 27 * fracH, y: 10.5 * fracW, x1: 26.4 * fracH, y1: 10.5 * fracW },
-      { color: "black", width: 3 }
+      colorBorder
     );
     drawLine(
       { x: 25.46 * fracH, y: 10.5 * fracW, x1: 25.8 * fracH, y1: 10.5 * fracW },
-      { color: "black", width: 3 }
+      colorBorder
     );
 
     ctx.fillText("מדרגות", 30.2 * fracH, 11.5 * fracW);
@@ -648,19 +649,19 @@ const FloorThree = (props) => {
 
     drawLine(
       { x: 26 * fracH, y: 8.2 * fracW, x1: 28.6 * fracH, y1: 8.2 * fracW },
-      { color: "blue", width: 3 }
+      henceColor
     );
     drawLine(
       { x: 28.6 * fracH, y: 8.2 * fracW, x1: 28.6 * fracH, y1: 10.2 * fracW },
-      { color: "blue", width: 3 }
+      henceColor
     );
     drawLine(
       { x: 9.5 * fracH, y: 14 * fracW, x1: 12 * fracH, y1: 14 * fracW },
-      { color: "black", width: 3 }
+      colorBorder
     );
     drawLine(
       { x: 14 * fracH, y: 14 * fracW, x1: 15.5 * fracH, y1: 14 * fracW },
-      { color: "black", width: 3 }
+      colorBorder
     );
   }, []);
 
