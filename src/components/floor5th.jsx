@@ -444,7 +444,6 @@ const FloorFive = () => {
     <div>
       <canvas ref={canvas}></canvas>
       <TrackedUsers floor="5" />
-      <User x="15" y="12" battery="30%" name="איתן גיטלר" />
     </div>
   );
 };
