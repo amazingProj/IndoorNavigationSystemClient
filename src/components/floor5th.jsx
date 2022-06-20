@@ -2,10 +2,19 @@ import React, { useState, useEffect, useRef } from "react";
 import "./style/canvas.css";
 import accessPointImage from "./style/images/accessPoint.svg";
 import TrackedUsers from "./users";
+import User from "./user";
 
 const FloorFive = () => {
   const canvas = useRef();
   let ctx = null;
+  const chairColor = { backgroundColor: "black" };
+  const table = { backgroundColor: "#cd8500" };
+  const colorBorder = { color: "black", width: 1 };
+  const fence = { color: "blue", width: 1 };
+  const elavator = { color: "black", width: 1 };
+  const dooradditional = { color: "black", width: 1 };
+  const font = 0.015 * window.innerWidth + "px Arial";
+  const doorThickness = 1;
 
   const drawFillRect = (info, style = {}) => {
     const { x, y, w, h } = info;
@@ -85,7 +94,7 @@ const FloorFive = () => {
             w: 0.4 * fracH,
             h: 0.5 * fracW,
           },
-          { backgroundColor: "black" }
+          chairColor
         );
       }
       for (let j = 0; j < 5; ++j) {
@@ -96,7 +105,7 @@ const FloorFive = () => {
             w: 0.4 * fracH,
             h: 0.5 * fracW,
           },
-          { backgroundColor: "black" }
+          chairColor
         );
       }
       drawFillRect(
@@ -106,7 +115,7 @@ const FloorFive = () => {
           w: 4 * fracH,
           h: 0.5 * fracW,
         },
-        { backgroundColor: "#cd8500" }
+        table
       );
       drawFillRect(
         {
@@ -115,7 +124,7 @@ const FloorFive = () => {
           w: 3 * fracH,
           h: 0.5 * fracW,
         },
-        { backgroundColor: "#cd8500" }
+        table
       );
     }
 
@@ -128,7 +137,7 @@ const FloorFive = () => {
             w: 0.4 * fracH,
             h: 0.5 * fracW,
           },
-          { backgroundColor: "black" }
+          chairColor
         );
       }
       for (let j = 0; j < 4; ++j) {
@@ -139,7 +148,7 @@ const FloorFive = () => {
             w: 0.4 * fracH,
             h: 0.5 * fracW,
           },
-          { backgroundColor: "black" }
+          chairColor
         );
       }
       drawFillRect(
@@ -149,7 +158,7 @@ const FloorFive = () => {
           w: 2.5 * fracH,
           h: 0.5 * fracW,
         },
-        { backgroundColor: "#cd8500" }
+        table
       );
       drawFillRect(
         {
@@ -158,15 +167,15 @@ const FloorFive = () => {
           w: 3.5 * fracH,
           h: 0.5 * fracW,
         },
-        { backgroundColor: "#cd8500" }
+        table
       );
     }
 
     // class 460
-    let colorBorder = { color: "black", width: 5 };
+
     drawLine(
       { x: 8.8 * fracH, y: 0, x1: 8.8 * fracH, y1: 8.8 * fracW },
-      { color: "black", width: 3 }
+      colorBorder
     );
     drawLine(
       { x: 0, y: 8.8 * fracW, x1: 2 * fracH, y1: 8.8 * fracW },
@@ -176,7 +185,7 @@ const FloorFive = () => {
       { x: 3.6 * fracH, y: 8.8 * fracW, x1: 8.8 * fracH, y1: 8.8 * fracW },
       colorBorder
     );
-    ctx.font = "22px Arial";
+    ctx.font = font;
     ctx.fillStyle = "#00000F";
     ctx.textAlign = "right";
     ctx.fillText("כיתה 560", 5 * fracH + offsetX, 8 * fracW);
@@ -211,7 +220,7 @@ const FloorFive = () => {
       { x: 11.6 * fracH, y: 8.8 * fracW, x1: 16.6 * fracH, y1: 8.8 * fracW },
       colorBorder
     );
-    ctx.font = "22px Arial";
+    ctx.font = font;
     ctx.fillStyle = "#00000F";
     ctx.textAlign = "right";
     ctx.fillText("כיתה 540", 14 * fracH + offsetX, 8 * fracW);
@@ -222,12 +231,12 @@ const FloorFive = () => {
       colorBorder
     );
 
-    ctx.font = "22px Arial";
+    ctx.font = font;
     ctx.fillStyle = "#00000F";
     ctx.textAlign = "right";
     ctx.fillText("מדרגות", 4.3 * fracH, 10.5 * fracW);
 
-    ctx.font = "22px Arial";
+    ctx.font = font;
     ctx.fillStyle = "#00000F";
     ctx.textAlign = "right";
     ctx.fillText("מדרגות", 31.3 * fracH, 10.5 * fracW);
@@ -256,8 +265,6 @@ const FloorFive = () => {
       { x: 22.5 * fracH, y: 8.8 * fracW, x1: 24 * fracH, y1: 8.8 * fracW },
       colorBorder
     );
-    //drawLine({x: 15.2 * fracH, y: 10.8 * fracW, x1: 16.5 * fracH, y1: 10.8 * fracW }, colorBorder)
-    let insideWallsTheme = { color: "black", width: 3 };
 
     // dow line straight
     drawLine(
@@ -271,7 +278,7 @@ const FloorFive = () => {
     );
     // left-top side door
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = doorThickness;
     ctx.fillStyle = "#00000F";
     ctx.arc(
       5.4 * fracH,
@@ -282,14 +289,16 @@ const FloorFive = () => {
       false
     );
     ctx.stroke();
-    drawLine(
-      { x: -0.25 * fracH, y: 10.8 * fracW, x1: 0 * fracH, y1: 10.8 * fracW },
-      { color: "black", width: 2 }
-    );
+    drawLine({
+      x: -0.25 * fracH,
+      y: 10.8 * fracW,
+      x1: 0 * fracH,
+      y1: 10.8 * fracW,
+    });
 
     // left-down side door
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = doorThickness;
     ctx.fillStyle = "#00000F";
     ctx.arc(
       5.4 * fracH,
@@ -302,23 +311,23 @@ const FloorFive = () => {
     ctx.stroke();
     drawLine(
       { x: -0.25 * fracH, y: 8.8 * fracW, x1: 0 * fracH, y1: 8.8 * fracW },
-      { color: "black", width: 2 }
+      dooradditional
     );
 
     // right-top side door
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = doorThickness;
     ctx.fillStyle = "#00000F";
     ctx.arc(28.7 * fracH, 9 * fracW, 1 * fracW, 0, Math.PI / 2, false);
     ctx.stroke();
     drawLine(
       { x: 24 * fracH, y: 8.8 * fracW, x1: 24.4 * fracH, y1: 8.8 * fracW },
-      { color: "black", width: 2 }
+      dooradditional
     );
 
     // right-down side door
     ctx.beginPath();
-    ctx.lineWidth = 2;
+    ctx.lineWidth = doorThickness;
     ctx.fillStyle = "#00000F";
     ctx.arc(
       28.7 * fracH,
@@ -331,7 +340,7 @@ const FloorFive = () => {
     ctx.stroke();
     drawLine(
       { x: 24 * fracH, y: 10.8 * fracW, x1: 24.4 * fracH, y1: 10.8 * fracW },
-      { color: "black", width: 2 }
+      dooradditional
     );
 
     ctx.fillText("שמעון מזרחי", 20 * fracH, 14 * fracW);
@@ -360,44 +369,44 @@ const FloorFive = () => {
     // stairs - left
     drawLine(
       { x: 0 * fracH, y: 8.2 * fracW, x1: -4.6 * fracH, y1: 8.2 * fracW },
-      { color: "blue", width: 3 }
+      fence
     );
     drawLine(
       { x: -4.6 * fracH, y: 8.2 * fracW, x1: -4.6 * fracH, y1: 10.2 * fracW },
-      { color: "blue", width: 3 }
+      fence
     );
 
     // elavator
     drawLine(
       { x: 27 * fracH, y: 12.5 * fracW, x1: 27 * fracH, y1: 10.5 * fracW },
-      { color: "black", width: 3 }
+      elavator
     );
     drawLine(
       { x: 27 * fracH, y: 12.5 * fracW, x1: 25.5 * fracH, y1: 12.5 * fracW },
-      { color: "black", width: 3 }
+      elavator
     );
     drawLine(
       { x: 25.5 * fracH, y: 12.5 * fracW, x1: 25.5 * fracH, y1: 10.5 * fracW },
-      { color: "black", width: 3 }
+      elavator
     );
     drawLine(
       { x: 27 * fracH, y: 10.5 * fracW, x1: 26.4 * fracH, y1: 10.5 * fracW },
-      { color: "black", width: 3 }
+      elavator
     );
     drawLine(
       { x: 25.46 * fracH, y: 10.5 * fracW, x1: 25.8 * fracH, y1: 10.5 * fracW },
-      { color: "black", width: 3 }
+      elavator
     );
 
     ctx.fillText("מעלית", 31.8 * fracH, 12 * fracW);
 
     drawLine(
       { x: 24 * fracH, y: 8.2 * fracW, x1: 28.6 * fracH, y1: 8.2 * fracW },
-      { color: "blue", width: 3 }
+      fence
     );
     drawLine(
       { x: 28.6 * fracH, y: 8.2 * fracW, x1: 28.6 * fracH, y1: 10.2 * fracW },
-      { color: "blue", width: 3 }
+      fence
     );
   }, []);
 
@@ -435,6 +444,7 @@ const FloorFive = () => {
     <div>
       <canvas ref={canvas}></canvas>
       <TrackedUsers floor="5" />
+      <User x="15" y="12" battery="30%" name="איתן גיטלר" />
     </div>
   );
 };

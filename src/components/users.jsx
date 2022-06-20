@@ -3,6 +3,13 @@ import "./style/canvas.css";
 import socketIOClient from "socket.io-client";
 import User from "./user";
 import "./style/user.css";
+import GuitarPlay from "./audio/guitar_chord1.mp3";
+
+const playAudio = () => {
+  const audio = new Audio();
+  audio.src = GuitarPlay;
+  audio.play();
+};
 
 const TrackedUsers = (props) => {
   const userRef = useRef();
@@ -29,6 +36,9 @@ const TrackedUsers = (props) => {
       let userName = userNames[ID];
       let batteryInfo = wifiInformation["BATTERY"];
       let isAlarmed = wifiInformation["ISAlarmed"];
+      if (isAlarmed) {
+        playAudio();
+      }
       let dict = {
         index: count.current,
         id: ID,

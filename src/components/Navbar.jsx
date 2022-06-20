@@ -48,7 +48,7 @@ const Navbar = () => {
               </div>
               <div className={!dropdown ? "hidden" : "absolute"}>
                 <div
-                  className="text-right origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  className="text-right origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="menu-button"
