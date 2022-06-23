@@ -8,6 +8,8 @@ const ManageUsers = (props) => {
   const requiredField = "חובה למלא כתובת MAC";
   const mac = useRef();
   const name = useRef();
+  var [clients, setClients] = useState([]);
+  const [valid, setValid] = useState(false);
 
   const loading = () => {
     let user = {};
@@ -17,6 +19,17 @@ const ManageUsers = (props) => {
       console.log(res.data);
     });
   };
+
+  useEffect(() => {
+    if (!valid) {
+      axios.get("http://localhost:4001/clients").then((res) => {
+        let data = res.data;
+        console.log(data);
+        setClients(data);
+        setValid(true);
+      });
+    }
+  });
 
   return (
     <div>
@@ -61,6 +74,14 @@ const ManageUsers = (props) => {
           </div>
         </div>
       </form>
+      <div>
+        {clients.map((client) => (
+          <div>
+            <h1>{client.name}</h1>
+            <p>{client.mac}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
