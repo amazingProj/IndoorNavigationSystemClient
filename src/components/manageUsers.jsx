@@ -6,11 +6,13 @@ const ManageUsers = (props) => {
   const userNameMsg = "הקלד שם המשתמש";
   const macAddressMsg = "הקלד כאן את כתובת ה MAC של המכשיר";
   const requiredField = "חובה למלא כתובת MAC";
+  const mac = useRef();
+  const name = useRef();
 
   const loading = () => {
     let user = {};
-    user["mac"] = "hey";
-    user["name"] = "boom";
+    user["mac"] = mac.current.value;
+    user["name"] = name.current.value;
     axios.post("http://localhost:4001/clients/add", user).then((res) => {
       console.log(res.data);
     });
@@ -34,6 +36,7 @@ const ManageUsers = (props) => {
               {macAddressMsg}
             </label>
             <input
+              ref={mac}
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-first-name"
               type="text"
@@ -49,6 +52,7 @@ const ManageUsers = (props) => {
               {userNameMsg}
             </label>
             <input
+              ref={name}
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-last-name"
               type="text"
