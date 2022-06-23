@@ -1,23 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
 
 const ManageUsers = (props) => {
-  var [isClicked, setIsClicked] = useState(false);
   const pressMessage = "לחץ כאן כדי להוסיף  מכשיר חדש";
   const userNameMsg = "הקלד שם המשתמש";
   const macAddressMsg = "הקלד כאן את כתובת ה MAC של המכשיר";
   const requiredField = "חובה למלא כתובת MAC";
 
   const loading = () => {
-    setIsClicked(true);
+    let user = {};
+    user["mac"] = "hey";
+    user["name"] = "boom";
+    axios.post("http://localhost:4001/clients/add", user).then((res) => {
+      console.log(res.data);
+    });
   };
 
-  useEffect(() => {
-    if (isClicked) {
-    }
-  });
   return (
     <div>
-      <button className="content-center mt-20 mr-20 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+      <button
+        onClick={loading}
+        className="content-center mt-20 mr-20 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >
         {pressMessage}
       </button>
       <form className="w-full max-w-lg mt-4 mr-4">
