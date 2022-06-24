@@ -13,6 +13,16 @@ const ManageUsers = (props) => {
   const [valid, setValid] = useState(false);
   const MINUTE_MS = 60000;
   const deleteMsg = "מחיקה";
+  const renameMsg = "שנה שם";
+  const rename = useRef();
+
+  const renameClient = (id, client) => {
+    client.name = rename.current.value;
+    axios
+      .post("http://localhost:4001/clients/update/" + id, client)
+      .then((res) => console.log(res.data));
+    setValid(false);
+  };
 
   const deleteClient = (id) => {
     console.log("crash");
@@ -105,11 +115,20 @@ const ManageUsers = (props) => {
               <div className="flex items-stretch">
                 <li className="large-font">
                   <input
+                    ref={rename}
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-last-name"
                     type="text"
                     placeholder={client.name}
                   />
+                  <br />
+                  <button
+                    onClick={() => {
+                      renameClient(client._id, client);
+                    }}
+                  >
+                    {renameMsg}
+                  </button>
                 </li>
               </div>
               <div className="large-font">
