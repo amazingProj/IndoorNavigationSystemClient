@@ -5,7 +5,7 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const [dropdown, setDropdown] = useState(true);
+  const [dropdown, setDropdown] = useState(false);
   const manageAccessPoint = "נהל נקודות גישה";
 
   const handleClick = () => setNav(!nav);

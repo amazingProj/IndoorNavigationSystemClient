@@ -3,7 +3,7 @@ import "./style/canvas.css";
 import accessPointImage from "./style/images/accessPoint.svg";
 import TrackedUsers from "./users";
 
-const FloorFour = () => {
+const FloorFour = (props) => {
   const canvas = useRef();
   let ctx = null;
   const TableBackground = { backgroundColor: "#cd8500" };
@@ -15,6 +15,7 @@ const FloorFour = () => {
   const insideWallsTheme = { color: "black", width: 1 };
   const fenceColor = { color: "blue", width: 1 };
   const doorThickness = 1;
+  let editMode = props.editMode || false;
 
   const drawFillRect = (info, style = {}) => {
     const { x, y, w, h } = info;
@@ -588,39 +589,50 @@ const FloorFour = () => {
   }, []);
 
   useEffect(() => {
-    /*
-    let width = window.innerHeight * 0.8;
-    let height = window.innerWidth;
-    let fracH = Math.trunc(height / 34);
+    if (editMode) {
+      let width = window.innerHeight * 0.8;
+      let height = window.innerWidth;
+      let fracH = Math.trunc(height / 34);
 
-    ctx.font = "12px Arial";
-    ctx.fillStyle = "#00000F";
-    ctx.textAlign = "right";
+      ctx.font = "12px Arial";
+      ctx.fillStyle = "#00000F";
+      ctx.textAlign = "right";
 
-    for (let i = 1; i < 34; ++i) {
-      drawLineWithoutOffset({ x: i * fracH, y: 0, x1: i * fracH, y1: height });
+      for (let i = 1; i < 34; ++i) {
+        drawLineWithoutOffset({
+          x: i * fracH,
+          y: 0,
+          x1: i * fracH,
+          y1: height,
+        });
 
-      if (i < 6) {
-        ctx.fillText(6 - i + "-", i * fracH - 2, Math.trunc(width * 0.05));
-      } else if (i < 30) {
-        ctx.fillText(i - 5, i * fracH - 2, Math.trunc(width * 0.05));
-      } else {
-        ctx.fillText(i - 29 + "+", i * fracH - 2, Math.trunc(width * 0.05));
+        if (i < 6) {
+          ctx.fillText(6 - i + "-", i * fracH - 2, Math.trunc(width * 0.05));
+        } else if (i < 30) {
+          ctx.fillText(i - 5, i * fracH - 2, Math.trunc(width * 0.05));
+        } else {
+          ctx.fillText(i - 29 + "+", i * fracH - 2, Math.trunc(width * 0.05));
+        }
+      }
+      let fracW = Math.trunc(width / 17.2);
+
+      for (let i = 1; i < 18; ++i) {
+        drawLineWithoutOffset({
+          x: 0,
+          y: i * fracW,
+          x1: height,
+          y1: i * fracW,
+        });
+        ctx.textAlign = "left";
+        ctx.fillText(i, 0, i * fracW - 2);
       }
     }
-    let fracW = Math.trunc(width / 17.2);
-
-    for (let i = 1; i < 18; ++i) {
-      drawLineWithoutOffset({ x: 0, y: i * fracW, x1: height, y1: i * fracW });
-      ctx.textAlign = "left";
-      ctx.fillText(i, 0, i * fracW - 2);
-    }*/
   }, []);
 
   return (
     <div>
       <canvas ref={canvas}></canvas>
-      <TrackedUsers floor="4" />
+      {!editMode && <TrackedUsers floor="4" />}
     </div>
   );
 };

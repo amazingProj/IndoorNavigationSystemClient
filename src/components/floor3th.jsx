@@ -23,6 +23,7 @@ const FloorThree = (props) => {
   const boardColor = { backgroundColor: "#C4CACD" };
   const tableColor = { backgroundColor: "#cd8500" };
   const chairColor = { backgroundColor: "#000000" };
+  let editMode = props.editMode || false;
 
   const drawFillRect = (info, style = {}) => {
     const { x, y, w, h } = info;
@@ -58,47 +59,48 @@ const FloorThree = (props) => {
     ctx.stroke();
   };
 
-  const drawCircle = () => {};
-
   const drawLinesInMeters = () => {
-    /*
-    let width = window.innerHeight * 0.8;
-    let height = window.innerWidth;
-    let fracH = Math.trunc(height / 34);
-    let fracW = Math.trunc(width / 17.2);
-    ctx.font = "12px Arial";
-    ctx.fillStyle = "#00000F";
-    ctx.textAlign = "right";
-    ctx.fillText("מטר/מטר", 1 * fracH, 0.5 * fracW);
-    // horizontal lines
-    for (let i = 1; i < 34; ++i) {
-      if (props.horizontalLines) {
+    if (editMode) {
+      let width = window.innerHeight * 0.8;
+      let height = window.innerWidth;
+      let fracH = Math.trunc(height / 34);
+      let fracW = Math.trunc(width / 17.2);
+      ctx.font = "12px Arial";
+      ctx.fillStyle = "#00000F";
+      ctx.textAlign = "right";
+      ctx.fillText("מטר/מטר", 1 * fracH, 0.5 * fracW);
+      // horizontal lines
+      for (let i = 1; i < 34; ++i) {
         drawLineWithoutOffset({
           x: i * fracH,
           y: 0,
           x1: i * fracH,
           y1: height,
         });
-      }
 
-      if (i < 5) {
-        ctx.fillText(5 - i + "-", i * fracH - 2, Math.trunc(width * 0.05));
-      } else if (i < 30) {
-        ctx.fillText(i - 5, i * fracH - 2, Math.trunc(width * 0.05));
-      } else {
-        ctx.fillText(i - 29 + "+", i * fracH - 2, Math.trunc(width * 0.05));
+        if (i < 5) {
+          ctx.fillText(5 - i + "-", i * fracH - 2, Math.trunc(width * 0.05));
+        } else if (i < 30) {
+          ctx.fillText(i - 5, i * fracH - 2, Math.trunc(width * 0.05));
+        } else {
+          ctx.fillText(i - 29 + "+", i * fracH - 2, Math.trunc(width * 0.05));
+        }
       }
-    }
-    // end of horizontal lines
+      // end of horizontal lines
 
-    // vertical lines
-    for (let i = 1; i < 18; ++i) {
-      drawLineWithoutOffset({ x: 0, y: i * fracW, x1: height, y1: i * fracW });
-      ctx.textAlign = "left";
-      ctx.fillText(i, 0, i * fracW - 2);
+      // vertical lines
+      for (let i = 1; i < 18; ++i) {
+        drawLineWithoutOffset({
+          x: 0,
+          y: i * fracW,
+          x1: height,
+          y1: i * fracW,
+        });
+        ctx.textAlign = "left";
+        ctx.fillText(i, 0, i * fracW - 2);
+      }
+      // end of vertical lines
     }
-    // end of vertical lines
-    */
   };
 
   useEffect(() => {
@@ -678,7 +680,7 @@ const FloorThree = (props) => {
   return (
     <div>
       <canvas ref={canvas}></canvas>
-      <TrackedUsers floor="3" />
+      {!editMode && <TrackedUsers floor="3" />}
     </div>
   );
 };
