@@ -1,0 +1,22 @@
+.container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: whitesmoke;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.item {
+    background:LightSkyBlue;
+}
+
+.font {
+    font-size: small;
+}
+
+.large-font{
+    font-size: large;
+}

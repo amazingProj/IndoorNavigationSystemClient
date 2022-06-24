@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import "./style/users.css";
 
 const ManageUsers = (props) => {
   const pressMessage = "לחץ כאן כדי להוסיף  מכשיר חדש";
@@ -10,6 +11,21 @@ const ManageUsers = (props) => {
   const name = useRef();
   var [clients, setClients] = useState([]);
   const [valid, setValid] = useState(false);
+  const MINUTE_MS = 60000;
+  const deleteMsg = "מחיקה";
+
+  const deleteClient = (id) => {
+    console.log("crash");
+
+    console.log(id);
+    axios
+      .delete("http://localhost:4001/clients/" + id)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => console.log(error.response));
+    setValid(false);
+  };
 
   const loading = () => {
     let user = {};
@@ -18,9 +34,15 @@ const ManageUsers = (props) => {
     axios.post("http://localhost:4001/clients/add", user).then((res) => {
       console.log(res.data);
     });
+    setValid(false);
   };
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      console.log("Logs every minute");
+      setValid(false);
+    }, MINUTE_MS);
+
     if (!valid) {
       axios.get("http://localhost:4001/clients").then((res) => {
         let data = res.data;
@@ -29,6 +51,8 @@ const ManageUsers = (props) => {
         setValid(true);
       });
     }
+
+    return () => clearInterval(interval);
   });
 
   return (
@@ -74,11 +98,33 @@ const ManageUsers = (props) => {
           </div>
         </div>
       </form>
-      <div>
+      <div className="list-none container">
         {clients.map((client) => (
-          <div>
-            <h1>{client.name}</h1>
-            <p>{client.mac}</p>
+          <div key={client._id} className="item">
+            <div>
+              <div className="flex items-stretch">
+                <li className="large-font">
+                  <input
+                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="grid-last-name"
+                    type="text"
+                    placeholder={client.name}
+                  />
+                </li>
+              </div>
+              <div className="large-font">
+                <pre>כתובת ה MAC היא</pre>
+                {client.mac}
+              </div>
+              <button
+                onClick={() => {
+                  deleteClient(client._id);
+                }}
+                className="font"
+              >
+                {deleteMsg}
+              </button>
+            </div>
           </div>
         ))}
       </div>
