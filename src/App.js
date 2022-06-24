@@ -6,6 +6,7 @@ import FloorFive from "./components/floor5th";
 import FloorFour from "./components/floor4th";
 import Home from "./components/home";
 import ManageUsers from "./components/manageUsers";
+import Aps from "./components/accesspointsManager";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route path="/manageUsers">
             <ManageUsers />
+          </Route>
+          <Route path="/manageAPs">
+            <Aps />
           </Route>
         </Switch>
       </BrowserRouter>
