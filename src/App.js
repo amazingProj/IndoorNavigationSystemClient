@@ -11,6 +11,7 @@ import Aps from "./components/accesspointsManager";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
+  let pos = { x: "5", y: "4" };
   return (
     <div>
       <BrowserRouter>
@@ -23,7 +24,7 @@ function App() {
             <FloorFour />
           </Route>
           <Route path="/floor3">
-            <FloorThree />
+            <FloorThree accessPoints={pos} />
           </Route>
           <Route path="/floor5">
             <FloorFive />
