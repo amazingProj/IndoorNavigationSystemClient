@@ -61,6 +61,8 @@ const FloorThree = (props) => {
   };
 
   const drawLinesInMeters = () => {
+    const canvasEle = canvas.current;
+    ctx = canvasEle.getContext("2d");
     if (editMode) {
       let width = window.innerHeight * 0.8;
       let height = window.innerWidth;
@@ -682,7 +684,6 @@ const FloorThree = (props) => {
     <div>
       <canvas ref={canvas}></canvas>
       {!editMode && <TrackedUsers floor="3" />}
-      <AccessPoint />
     </div>
   );
 };

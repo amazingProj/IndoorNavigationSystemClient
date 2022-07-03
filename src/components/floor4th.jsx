@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import "./style/canvas.css";
 import accessPointImage from "./style/images/accessPoint.svg";
 import TrackedUsers from "./users";
+import AccessPoints from "./accesspoints";
 
 const FloorFour = (props) => {
   const canvas = useRef();
@@ -633,6 +634,7 @@ const FloorFour = (props) => {
     <div>
       <canvas ref={canvas}></canvas>
       {!editMode && <TrackedUsers floor="4" />}
+      {editMode && <AccessPoints accessPoints={props.accessPoints} />}
     </div>
   );
 };

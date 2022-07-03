@@ -41,9 +41,15 @@ const APs = (props) => {
           קומה 5
         </li>
       </ul>
-      {(counter === 0 && <Floor3 editMode="true" />) ||
-        (counter === 1 && <Floor4 editMode="true" />) ||
-        (counter === 2 && <Floor5 editMode="true" />)}
+      {(counter === 0 && (
+        <Floor3 editMode="true" accessPoints={props.accessPoints} />
+      )) ||
+        (counter === 1 && (
+          <Floor4 editMode="true" accessPoints={props.accessPoints} />
+        )) ||
+        (counter === 2 && (
+          <Floor5 editMode="true" accessPoints={props.accessPoints} />
+        ))}
     </div>
   );
 };
