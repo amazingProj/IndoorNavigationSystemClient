@@ -7,7 +7,7 @@ const AccessPoints = (props) => {
   const [error, setError] = useState();
 
   useEffect(() => {
-    //console.log(props.accessPoints);
+    console.log(props.accessPoints);
     setLoading(true);
     if (props.accessPoints != null) {
       setData(props.accessPoints);
@@ -25,11 +25,9 @@ const AccessPoints = (props) => {
 
   return (
     <div>
-      {data
-        .filter((accessPoints) => !accessPoints)
-        .map((accessPoint) => (
-          <AccessPoint x={accessPoint.x} y={accessPoint.y} />
-        ))}
+      {props.accessPoints.map((accessPoint) => (
+        <AccessPoint x={accessPoint.x} y={accessPoint.y} />
+      ))}
     </div>
   );
 };
