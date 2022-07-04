@@ -462,7 +462,7 @@ const FloorFive = (props) => {
   return (
     <div>
       <canvas ref={canvas}></canvas>
-      {!editMode && <TrackedUsers floor="5" />}
+      {!editMode && <TrackedUsers floor="5" users={props.users} />}
       {editMode && <AccessPoints accessPoints={props.accessPoints} floor="5" />}
     </div>
   );
