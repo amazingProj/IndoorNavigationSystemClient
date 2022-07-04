@@ -21,6 +21,7 @@ function App() {
   const ENDPOINT = "ws://127.0.0.1:4001";
   var [users, updateUsers] = useState([]);
   const count = useRef(0);
+  const [socket, setSocket] = useState(null);
 
   const playAudio = () => {
     const audio = new Audio();
@@ -34,11 +35,9 @@ function App() {
   };
 
   useEffect(() => {
-<<<<<<< HEAD
     console.log("app.js");
-=======
->>>>>>> 2ab65264d4f4c611e1d8d8eb07b42c292b514d49
     const socket = socketIOClient(ENDPOINT);
+
     socket.on("users/devices/location", (data) => {
       let unmounted = false;
       let wifiInformation = JSON.parse(JSON.stringify(data));
@@ -70,12 +69,9 @@ function App() {
         updateUsers([...newUsers, dict]);
       }
     });
+
     return () => socket.disconnect();
-<<<<<<< HEAD
-  }, []);
-=======
-  });
->>>>>>> 2ab65264d4f4c611e1d8d8eb07b42c292b514d49
+  }, [socket]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -91,7 +87,7 @@ function App() {
     }
 
     return () => clearInterval(interval);
-  });
+  }, []);
 
   return (
     <div>

@@ -7,7 +7,7 @@ const TrackedUsers = (props) => {
   const userRef = useRef();
 
   useEffect(() => {
-    console.log(props.users);
+    //console.log(props.users);
   });
 
   return (
