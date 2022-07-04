@@ -5,6 +5,7 @@ import Floor5 from "./floor5th";
 
 const APs = (props) => {
   const [counter, setCounter] = useState(0);
+  const [newAccessPoint, setNewAccessPoint] = useState(0);
 
   const setCounterZero = () => {
     setCounter(0);
@@ -16,6 +17,13 @@ const APs = (props) => {
     setCounter(2);
   };
 
+  useEffect(() => {}, []);
+
+  const addNewAccessPoint = () => {
+    setNewAccessPoint(newAccessPoint + 1);
+    console.log(newAccessPoint);
+  };
+
   return (
     <div>
       <br />
@@ -23,14 +31,20 @@ const APs = (props) => {
       <br />
       <ul className={"absolute bg-zinc-200 w-full px-8 inline-flex"}>
         <li
+          onClick={addNewAccessPoint}
+          className="hover:bg-zinc-300 border-b-2 border-zinc-300 align-middle"
+        >
+          +
+        </li>
+        <li
           onClick={setCounterZero}
-          className="hover:bg-zinc-300 border-b-2 border-zinc-300 w-full"
+          className="hover:bg-zinc-300 border-b-2 border-zinc-300 w-full align-middle"
         >
           קומה 3
         </li>
         <li
           onClick={setCounterOne}
-          className="hover:bg-zinc-300 border-b-2 border-zinc-300 w-full"
+          className="hover:bg-zinc-300 border-b-2 border-zinc-300 w-full align-middle"
         >
           קומה 4
         </li>
@@ -42,13 +56,25 @@ const APs = (props) => {
         </li>
       </ul>
       {(counter === 0 && (
-        <Floor3 editMode="true" accessPoints={props.accessPoints} />
+        <Floor3
+          editMode="true"
+          accessPoints={props.accessPoints}
+          new={newAccessPoint}
+        />
       )) ||
         (counter === 1 && (
-          <Floor4 editMode="true" accessPoints={props.accessPoints} />
+          <Floor4
+            editMode="true"
+            accessPoints={props.accessPoints}
+            new={newAccessPoint}
+          />
         )) ||
         (counter === 2 && (
-          <Floor5 editMode="true" accessPoints={props.accessPoints} />
+          <Floor5
+            editMode="true"
+            accessPoints={props.accessPoints}
+            new={newAccessPoint}
+          />
         ))}
     </div>
   );

@@ -687,7 +687,7 @@ const FloorThree = (props) => {
     <div>
       <canvas ref={canvas}></canvas>
       {!editMode && <TrackedUsers floor="3" users={props.users} />}
-      {editMode && <AccessPoints accessPoints={props.accessPoints} floor="3" />}
+      {editMode && <AccessPoints accessPoints={props.accessPoints} floor="3" new={props.new} />}
     </div>
   );
 };
