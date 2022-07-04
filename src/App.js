@@ -34,7 +34,10 @@ function App() {
   };
 
   useEffect(() => {
+<<<<<<< HEAD
     console.log("app.js");
+=======
+>>>>>>> 2ab65264d4f4c611e1d8d8eb07b42c292b514d49
     const socket = socketIOClient(ENDPOINT);
     socket.on("users/devices/location", (data) => {
       let unmounted = false;
@@ -68,7 +71,11 @@ function App() {
       }
     });
     return () => socket.disconnect();
+<<<<<<< HEAD
   }, []);
+=======
+  });
+>>>>>>> 2ab65264d4f4c611e1d8d8eb07b42c292b514d49
 
   useEffect(() => {
     const interval = setInterval(() => {
