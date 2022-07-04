@@ -3,17 +3,11 @@ import AccessPoint from "./accesspoint";
 
 const AccessPoints = (props) => {
   let floor = props.floor;
-  let newAccessPoints = {
-    bssid: "empty",
-    x: "10.5",
-    y: "10.5",
-    floorLevel: { floor },
-  };
 
-  useEffect(() => {
-    console.log(props.accessPoints);
-    console.log(props.floor);
-  });
+  let newCounter = props.new;
+  let firstTime = true;
+  const MINUTE_MS = 60000;
+
   return (
     <div>
       {props.accessPoints
@@ -24,9 +18,7 @@ const AccessPoints = (props) => {
         .map((accessPoint) => (
           <AccessPoint x={accessPoint.x} y={accessPoint.y} />
         ))}
-      {props.new > 0 && (
-        <AccessPoint x={newAccessPoints.x} y={newAccessPoints.y} />
-      )}
+      {props.new > 0 && <AccessPoint x="10" y="10" />}
     </div>
   );
 };

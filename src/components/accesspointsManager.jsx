@@ -6,6 +6,7 @@ import Floor5 from "./floor5th";
 const APs = (props) => {
   const [counter, setCounter] = useState(0);
   const [newAccessPoint, setNewAccessPoint] = useState(0);
+  var [users, setUsers] = useState([]);
 
   const setCounterZero = () => {
     setCounter(0);
@@ -17,11 +18,17 @@ const APs = (props) => {
     setCounter(2);
   };
 
-  useEffect(() => {}, []);
-
   const addNewAccessPoint = () => {
     setNewAccessPoint(newAccessPoint + 1);
-    console.log(newAccessPoint);
+    let newAccessPointInstance = {
+      key: { newAccessPoint },
+      bssid: "empty",
+      x: "10.5",
+      y: "10.5",
+      floorLevel: "0",
+    };
+
+    setUsers([...users, newAccessPointInstance]);
   };
 
   return (
@@ -60,6 +67,7 @@ const APs = (props) => {
           editMode="true"
           accessPoints={props.accessPoints}
           new={newAccessPoint}
+          users={users}
         />
       )) ||
         (counter === 1 && (
@@ -67,6 +75,7 @@ const APs = (props) => {
             editMode="true"
             accessPoints={props.accessPoints}
             new={newAccessPoint}
+            users={users}
           />
         )) ||
         (counter === 2 && (
@@ -74,6 +83,7 @@ const APs = (props) => {
             editMode="true"
             accessPoints={props.accessPoints}
             new={newAccessPoint}
+            users={users}
           />
         ))}
     </div>

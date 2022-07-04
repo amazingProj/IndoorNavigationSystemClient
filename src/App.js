@@ -16,10 +16,12 @@ import GuitarPlay from "./components/audio/guitar_chord1.mp3";
 function App() {
   let pos = { x: "5", y: "4" };
   const [valid, setValid] = useState(false);
+  const [validAPS, setValidAPS] = useState(false);
   var [AccessPoints, setAccessPoints] = useState([]);
   const MINUTE_MS = 60000;
   const ENDPOINT = "ws://127.0.0.1:4001";
   var [users, updateUsers] = useState([]);
+  var [dataAPS, setDataAPS] = useState([]);
   const count = useRef(0);
   const [socket, setSocket] = useState(null);
 
@@ -29,7 +31,7 @@ function App() {
     audio.play();
   };
 
-  const userNames = {
+  var userNames = {
     "94:B9:7E:FA:92:14": "אסף הלל",
     AssafAndroid1010: "אסף אנדרואיד",
   };
@@ -47,6 +49,9 @@ function App() {
       let ID = wifiInformation["ID"];
       let floorLevel = wifiInformation["FloorLevel"];
       let userName = userNames[ID];
+      console.log(dataAPS);
+      let users = dataAPS.filter((user) => user.mac == ID);
+      console.log(users);
       let batteryInfo = wifiInformation["BATTERY"];
       let isAlarmed = wifiInformation["ISAlarmed"];
       if (isAlarmed) {
@@ -77,7 +82,18 @@ function App() {
     const interval = setInterval(() => {
       console.log("Logs every minute");
       setValid(false);
+      setValidAPS(false);
     }, MINUTE_MS);
+
+    if (!validAPS) {
+      axios.get("http://localhost:4001/clients/").then((res) => {
+        let data = [...res.data];
+        console.log([...data]);
+        setDataAPS([...data]);
+        console.log(dataAPS);
+        setValidAPS(true);
+      });
+    }
 
     if (!valid) {
       axios.get("http://localhost:4001/aps").then((res) => {
