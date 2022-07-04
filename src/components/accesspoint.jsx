@@ -36,9 +36,16 @@ const AccessPoint = (props) => {
 
   useEffect(() => {
     if (x != null && y != null) {
+      let width = window.innerHeight;
+      let height = window.innerWidth;
+
       if (isClicked) {
-        point.current.style.top = y + "px";
-        point.current.style.left = x + "px";
+        if (0.13 * width < y && y < 0.95 * width) {
+          point.current.style.top = y + "px";
+        }
+        if (0.0004 * height < x && x < 0.99 * height) {
+          point.current.style.left = x + "px";
+        }
       }
     }
   });
