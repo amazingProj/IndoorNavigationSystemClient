@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import AccessPoint from "./accesspoint";
 import "./style/canvas.css";
 import accessPointImage from "./style/images/accessPoint.svg";
 import TrackedUsers from "./users";
+import AccessPoints from "./accesspoints";
 
 const FloorThree = (props) => {
   const canvas = useRef();
@@ -114,16 +114,19 @@ const FloorThree = (props) => {
     canvasEle.height = canvasEle.clientHeight;
     ctx = canvasEle.getContext("2d");
 
-    let image = new Image();
-    image.addEventListener(
-      "load",
-      function () {
-        ctx.drawImage(image, xOffset + 17.5 * fracH, offsetY + 5.5 * fracW);
-        ctx.drawImage(image, xOffset + 17.5 * fracH, offsetY + 16 * fracW);
-      },
-      false
-    );
-    image.src = accessPointImage;
+    if (!editMode) {
+      let image = new Image();
+      image.addEventListener(
+        "load",
+        function () {
+          ctx.drawImage(image, xOffset + 17.5 * fracH, offsetY + 5.5 * fracW);
+          ctx.drawImage(image, xOffset + 17.5 * fracH, offsetY + 16 * fracW);
+        },
+        false
+      );
+      image.src = accessPointImage;
+    }
+
     ctx.font = textFont;
     ctx.fillStyle = textColor;
     ctx.textAlign = textAlign;
@@ -683,7 +686,8 @@ const FloorThree = (props) => {
   return (
     <div>
       <canvas ref={canvas}></canvas>
-      {!editMode && <TrackedUsers floor="3" />}
+      {!editMode && <TrackedUsers floor="3" users={props.users} />}
+      {editMode && <AccessPoints accessPoints={props.accessPoints} floor="3" />}
     </div>
   );
 };

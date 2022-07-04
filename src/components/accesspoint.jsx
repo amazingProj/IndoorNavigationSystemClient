@@ -4,6 +4,15 @@ import ReactDom from "react-dom";
 import "./style/accesspoint.css";
 const AccessPoint = (props) => {
   const [isClicked, setIsClicked] = useState(false);
+  const [firstTime, setFirstTime] = useState(true);
+  const height = window.innerWidth;
+  const fracH = height / 34;
+  const width = window.innerHeight * 0.8;
+  const fracW = width / 17;
+  let offsetX = 4.1 * fracH;
+  let offsetY = 0.01 * window.innerHeight;
+  let basePercentLeft = 0.15 * window.innerWidth;
+  let basePercentTop = 0.15 * window.innerHeight;
 
   const handleClick = () => {
     setIsClicked(!isClicked);
@@ -35,10 +44,38 @@ const AccessPoint = (props) => {
   const { x, y } = useMouse();
 
   useEffect(() => {
-    if (x != null && y != null) {
+    const xOffset = 0.025 * window.innerWidth;
+    const height = window.innerWidth;
+    const fracH = height / 34;
+    if (firstTime) {
+      point.current.style.top =
+        basePercentTop + offsetY + props.y * fracW + "px";
+      point.current.style.left =
+        basePercentLeft + xOffset + props.x * fracH + "px";
+      setFirstTime(false);
+    } else if (x != null && y != null) {
+      let width = window.innerHeight;
+      let height = window.innerWidth;
+
       if (isClicked) {
-        point.current.style.top = y + "px";
-        point.current.style.left = x + "px";
+        if (0.13 * width < y && y < 0.95 * width) {
+          if (0.13 * width > y) {
+            point.current.style.top = 0.13 * width + "px";
+          } else if (0.95 * width < y) {
+            point.current.style.top = 0.95 * width + "px";
+          } else {
+            point.current.style.top = y + "px";
+          }
+        }
+        if (0.0004 * height < x && x < 0.99 * height) {
+          if (0.0004 * height > x) {
+            point.current.style.left = 0.0004 * height + "px";
+          } else if (x > 0.99 * height) {
+            point.current.style.left = 0.99 * height + "px";
+          } else {
+            point.current.style.left = x + "px";
+          }
+        }
       }
     }
   });

@@ -71,40 +71,42 @@ const FloorFour = (props) => {
     let offsetY = 0.01 * window.innerHeight;
     let xOffset = 0.025 * window.innerWidth;
 
-    let image = new Image();
-    image.addEventListener(
-      "load",
-      function () {
-        ctx.drawImage(
-          image,
-          xOffset + (7.9 + 4.5) * fracH,
-          offsetY + 14.5 * fracW
-        );
-        ctx.drawImage(
-          image,
-          xOffset + (9 + 3.6) * fracH,
-          offsetY + 5.9 * fracW
-        );
-        ctx.drawImage(
-          image,
-          xOffset + (8.1 + 4.5) * fracH,
-          offsetY + 15 * fracW
-        );
-        ctx.drawImage(
-          image,
-          xOffset + (9.2 + 3.5) * fracH,
-          offsetY + 4.2 * fracW
-        );
-        ctx.drawImage(
-          image,
-          xOffset + (21.6 + 4) * fracH,
-          offsetY + 2.6 * fracW
-        );
-      },
-      false
-    );
+    if (!editMode) {
+      let image = new Image();
+      image.addEventListener(
+        "load",
+        function () {
+          ctx.drawImage(
+            image,
+            xOffset + (7.9 + 4.5) * fracH,
+            offsetY + 14.5 * fracW
+          );
+          ctx.drawImage(
+            image,
+            xOffset + (9 + 3.6) * fracH,
+            offsetY + 5.9 * fracW
+          );
+          ctx.drawImage(
+            image,
+            xOffset + (8.1 + 4.5) * fracH,
+            offsetY + 15 * fracW
+          );
+          ctx.drawImage(
+            image,
+            xOffset + (9.2 + 3.5) * fracH,
+            offsetY + 4.2 * fracW
+          );
+          ctx.drawImage(
+            image,
+            xOffset + (21.6 + 4) * fracH,
+            offsetY + 2.6 * fracW
+          );
+        },
+        false
+      );
 
-    image.src = accessPointImage;
+      image.src = accessPointImage;
+    }
 
     drawLine(
       { x: 8.8 * fracH, y: 0, x1: 8.8 * fracH, y1: 8.8 * fracW },
@@ -633,8 +635,8 @@ const FloorFour = (props) => {
   return (
     <div>
       <canvas ref={canvas}></canvas>
-      {!editMode && <TrackedUsers floor="4" />}
-      {editMode && <AccessPoints accessPoints={props.accessPoints} />}
+      {!editMode && <TrackedUsers floor="4" users={props.users} />}
+      {editMode && <AccessPoints accessPoints={props.accessPoints} floor="4" />}
     </div>
   );
 };

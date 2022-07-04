@@ -3,6 +3,7 @@ import "./style/canvas.css";
 import accessPointImage from "./style/images/accessPoint.svg";
 import TrackedUsers from "./users";
 import User from "./user";
+import AccessPoints from "./accesspoints";
 
 const FloorFive = (props) => {
   const canvas = useRef();
@@ -70,21 +71,27 @@ const FloorFive = (props) => {
     let offsetY = 0.01 * window.innerHeight;
     let xOffset = 0.025 * window.innerWidth;
 
-    let image = new Image();
-    image.addEventListener(
-      "load",
-      function () {
-        ctx.drawImage(image, xOffset + (7 + 4) * fracH, offsetY + 8.7 * fracW);
-        ctx.drawImage(
-          image,
-          xOffset + (21.7 + 4) * fracH,
-          offsetY + 2.3 * fracW
-        );
-      },
-      false
-    );
+    if (!editMode) {
+      let image = new Image();
+      image.addEventListener(
+        "load",
+        function () {
+          ctx.drawImage(
+            image,
+            xOffset + (7 + 4) * fracH,
+            offsetY + 8.7 * fracW
+          );
+          ctx.drawImage(
+            image,
+            xOffset + (21.7 + 4) * fracH,
+            offsetY + 2.3 * fracW
+          );
+        },
+        false
+      );
 
-    image.src = accessPointImage;
+      image.src = accessPointImage;
+    }
 
     for (let i = 0; i < 6; ++i) {
       for (let j = 0; j < 7; j++) {
@@ -455,7 +462,8 @@ const FloorFive = (props) => {
   return (
     <div>
       <canvas ref={canvas}></canvas>
-      {!editMode && <TrackedUsers floor="5" />}
+      {!editMode && <TrackedUsers floor="5" users={props.users} />}
+      {editMode && <AccessPoints accessPoints={props.accessPoints} floor="5" />}
     </div>
   );
 };
