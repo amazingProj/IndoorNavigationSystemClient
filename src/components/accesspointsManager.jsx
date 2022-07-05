@@ -2,10 +2,12 @@ import Floor3 from "./floor3th";
 import React, { useState, useEffect, useRef } from "react";
 import Floor4 from "./floor4th";
 import Floor5 from "./floor5th";
+import Dialog from "./dialog";
 
 const APs = (props) => {
   const [counter, setCounter] = useState(0);
   const [newAccessPoint, setNewAccessPoint] = useState(0);
+  const [vis, setVis] = useState(false);
   var [users, setUsers] = useState([]);
 
   const setCounterZero = () => {
@@ -31,12 +33,21 @@ const APs = (props) => {
     setUsers([...users, newAccessPointInstance]);
   };
 
+  const saveClicked = () => {
+    setVis(true);
+  };
   return (
     <div>
       <br />
       <br />
       <br />
       <ul className={"absolute bg-zinc-200 w-full px-8 inline-flex"}>
+        <li
+          onClick={saveClicked}
+          className="hover:bg-zinc-300 border-b-2 border-zinc-300 align-middle"
+        >
+          שמור
+        </li>
         <li
           onClick={addNewAccessPoint}
           className="hover:bg-zinc-300 border-b-2 border-zinc-300 align-middle"
@@ -86,6 +97,7 @@ const APs = (props) => {
             users={users}
           />
         ))}
+      <Dialog visibility={vis} />
     </div>
   );
 };

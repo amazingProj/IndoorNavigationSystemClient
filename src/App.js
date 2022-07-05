@@ -61,7 +61,6 @@ function App() {
   }, [users]);
 
   useEffect(() => {
-    console.log("app.js");
     const socket = socketIOClient(ENDPOINT);
 
     socket.on("users/devices/location", (data) => {

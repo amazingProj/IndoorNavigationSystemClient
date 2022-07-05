@@ -2,12 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import AccessPoint from "./accesspoint";
 
 const AccessPoints = (props) => {
-  let floor = props.floor;
-
-  let newCounter = props.new;
-  let firstTime = true;
-  const MINUTE_MS = 60000;
-
   return (
     <div>
       {props.accessPoints
@@ -16,7 +10,14 @@ const AccessPoints = (props) => {
             accessPoint.floorLevel == props.floor || props.floor == 0
         )
         .map((accessPoint) => (
-          <AccessPoint x={accessPoint.x} y={accessPoint.y} />
+          <AccessPoint
+            x={accessPoint.x}
+            y={accessPoint.y}
+            bssid={accessPoint.bssid}
+            key={accessPoint._id}
+            id={accessPoint._id}
+            floor={accessPoint.floorLevel}
+          />
         ))}
       {props.new > 0 && <AccessPoint x="10" y="10" />}
     </div>

@@ -1,7 +1,8 @@
 import { useEffect, useState, useRef } from "react";
-
 import ReactDom from "react-dom";
 import "./style/accesspoint.css";
+import axios from "axios";
+
 const AccessPoint = (props) => {
   const [isClicked, setIsClicked] = useState(false);
   const [firstTime, setFirstTime] = useState(true);
@@ -15,7 +16,24 @@ const AccessPoint = (props) => {
   let basePercentTop = 0.15 * window.innerHeight;
 
   const handleClick = () => {
+    const xOffset = 0.025 * window.innerWidth;
+    const height = window.innerWidth;
+    const fracH = height / 34;
+
     setIsClicked(!isClicked);
+    if (isClicked) {
+      let newAps = {};
+      var tmp = parseInt(point.current.style.left, 10);
+      var number = parseInt(point.current.style.top, 10);
+      newAps["x"] = (tmp - (basePercentLeft + xOffset)) / fracH;
+      newAps["y"] = (number - (basePercentTop + offsetY)) / fracW;
+      newAps["bssid"] = props.bssid;
+      newAps["floorLevel"] = props.floor;
+      console.log(newAps);
+      axios
+        .post("http://localhost:4001/aps/update/" + props.id, newAps)
+        .then((res) => console.log(res.data));
+    }
   };
   const point = useRef();
 
@@ -79,6 +97,10 @@ const AccessPoint = (props) => {
       }
     }
   });
+
+  useEffect(() => {
+    console.log(props.id);
+  }, [props.id]);
 
   return (
     <div className="point" ref={point} onClick={handleClick}>
