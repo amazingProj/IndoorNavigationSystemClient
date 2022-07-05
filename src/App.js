@@ -21,7 +21,7 @@ function App() {
   const MINUTE_MS = 60000;
   const ENDPOINT = "ws://127.0.0.1:4001";
   var [users, updateUsers] = useState([]);
-  var [dataAPS, setDataAPS] = useState([]);
+  var [dataUsersNames, setDataUsersNames] = useState([]);
   const count = useRef(0);
   const [socket, setSocket] = useState(null);
 
@@ -37,6 +37,30 @@ function App() {
   };
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      console.log("Logs every minute");
+      setValid(false);
+      setValidAPS(false);
+    }, MINUTE_MS);
+
+    if (!validAPS) {
+      axios.get("http://localhost:4001/clients/").then((res) => {
+        setDataUsersNames((state) => res.data);
+        setValidAPS(true);
+      });
+    }
+
+    if (!valid) {
+      axios.get("http://localhost:4001/aps").then((res) => {
+        setAccessPoints(res.data);
+        setValid(true);
+      });
+    }
+
+    return () => clearInterval(interval);
+  }, [users]);
+
+  useEffect(() => {
     console.log("app.js");
     const socket = socketIOClient(ENDPOINT);
 
@@ -49,9 +73,9 @@ function App() {
       let ID = wifiInformation["ID"];
       let floorLevel = wifiInformation["FloorLevel"];
       let userName = userNames[ID];
-      console.log(dataAPS);
-      let users = dataAPS.filter((user) => user.mac == ID);
-      console.log(users);
+      let uservName = dataUsersNames.filter((user) => user.mac == ID);
+      let newName = uservName[0].name;
+      console.log(uservName);
       let batteryInfo = wifiInformation["BATTERY"];
       let isAlarmed = wifiInformation["ISAlarmed"];
       if (isAlarmed) {
@@ -62,7 +86,7 @@ function App() {
         id: ID,
         x: xCor,
         y: yCor,
-        name: userName,
+        name: newName,
         battery: batteryInfo,
         SOS: isAlarmed,
         floor: floorLevel,
@@ -76,31 +100,7 @@ function App() {
     });
 
     return () => socket.disconnect();
-  }, [socket]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      console.log("Logs every minute");
-      setValid(false);
-      setValidAPS(false);
-    }, MINUTE_MS);
-
-    if (!validAPS) {
-      axios.get("http://localhost:4001/clients/").then((res) => {
-        setDataAPS(res.data);
-        setValidAPS(true);
-      });
-    }
-
-    if (!valid) {
-      axios.get("http://localhost:4001/aps").then((res) => {
-        setAccessPoints(res.data);
-        setValid(true);
-      });
-    }
-
-    return () => clearInterval(interval);
-  }, []);
+  }, [socket, users, dataUsersNames]);
 
   return (
     <div>
