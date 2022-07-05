@@ -73,39 +73,23 @@ const FloorFour = (props) => {
 
     if (!editMode) {
       let image = new Image();
+      image.src = accessPointImage;
       image.addEventListener(
         "load",
         function () {
-          ctx.drawImage(
-            image,
-            xOffset + (7.9 + 4.5) * fracH,
-            offsetY + 14.5 * fracW
-          );
-          ctx.drawImage(
-            image,
-            xOffset + (9 + 3.6) * fracH,
-            offsetY + 5.9 * fracW
-          );
-          ctx.drawImage(
-            image,
-            xOffset + (8.1 + 4.5) * fracH,
-            offsetY + 15 * fracW
-          );
-          ctx.drawImage(
-            image,
-            xOffset + (9.2 + 3.5) * fracH,
-            offsetY + 4.2 * fracW
-          );
-          ctx.drawImage(
-            image,
-            xOffset + (21.6 + 4) * fracH,
-            offsetY + 2.6 * fracW
-          );
+          props.accessPoints.forEach((accessPoint) => {
+            if (accessPoint.floorLevel == "4") {
+              let x = accessPoint.x;
+              let y = accessPoint.y;
+              let posX = offsetX + x * fracH + 2 * fracH;
+              let posY = offsetY + y * fracW;
+              console.log(accessPoint);
+              ctx.drawImage(image, posX, posY);
+            }
+          });
         },
-        false
+        true
       );
-
-      image.src = accessPointImage;
     }
 
     drawLine(
@@ -589,7 +573,7 @@ const FloorFour = (props) => {
       { x: 28.6 * fracH, y: 8.2 * fracW, x1: 28.6 * fracH, y1: 10.2 * fracW },
       fenceColor
     );
-  }, []);
+  }, [props.accessPoints]);
 
   useEffect(() => {
     if (editMode) {
@@ -636,7 +620,13 @@ const FloorFour = (props) => {
     <div>
       <canvas ref={canvas}></canvas>
       {!editMode && <TrackedUsers floor="4" users={props.users} />}
-      {editMode && <AccessPoints accessPoints={props.accessPoints} floor="4" new={props.new} />}
+      {editMode && (
+        <AccessPoints
+          accessPoints={props.accessPoints}
+          floor="4"
+          new={props.new}
+        />
+      )}
     </div>
   );
 };

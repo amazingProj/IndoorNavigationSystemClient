@@ -3,6 +3,7 @@ import "./style/canvas.css";
 import accessPointImage from "./style/images/accessPoint.svg";
 import TrackedUsers from "./users";
 import AccessPoints from "./accesspoints";
+import AccessPoint from "./accesspoint";
 
 const FloorThree = (props) => {
   const canvas = useRef();
@@ -116,15 +117,23 @@ const FloorThree = (props) => {
 
     if (!editMode) {
       let image = new Image();
+      image.src = accessPointImage;
       image.addEventListener(
         "load",
         function () {
-          ctx.drawImage(image, xOffset + 17.5 * fracH, offsetY + 5.5 * fracW);
-          ctx.drawImage(image, xOffset + 17.5 * fracH, offsetY + 16 * fracW);
+          props.accessPoints.forEach((accessPoint) => {
+            if (accessPoint.floorLevel == "3") {
+              let x = accessPoint.x;
+              let y = accessPoint.y;
+              let posX = offsetX + x * fracH + 2 * fracH;
+              let posY = offsetY + y * fracW;
+              console.log(accessPoint);
+              ctx.drawImage(image, posX, posY);
+            }
+          });
         },
-        false
+        true
       );
-      image.src = accessPointImage;
     }
 
     ctx.font = textFont;
@@ -679,7 +688,7 @@ const FloorThree = (props) => {
       { x: 14 * fracH, y: 14 * fracW, x1: 15.5 * fracH, y1: 14 * fracW },
       colorBorder
     );
-  }, []);
+  }, [props.accessPoints]);
 
   useEffect(drawLinesInMeters);
 
@@ -687,7 +696,13 @@ const FloorThree = (props) => {
     <div>
       <canvas ref={canvas}></canvas>
       {!editMode && <TrackedUsers floor="3" users={props.users} />}
-      {editMode && <AccessPoints accessPoints={props.accessPoints} floor="3" new={props.new} />}
+      {editMode && (
+        <AccessPoints
+          accessPoints={props.accessPoints}
+          floor="3"
+          new={props.new}
+        />
+      )}
     </div>
   );
 };

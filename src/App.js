@@ -87,10 +87,7 @@ function App() {
 
     if (!validAPS) {
       axios.get("http://localhost:4001/clients/").then((res) => {
-        let data = [...res.data];
-        console.log([...data]);
-        setDataAPS([...data]);
-        console.log(dataAPS);
+        setDataAPS(res.data);
         setValidAPS(true);
       });
     }
@@ -114,13 +111,13 @@ function App() {
         </Route>
         <Switch>
           <Route exact path="/floor4">
-            <FloorFour accessPoints={pos} users={users} />
+            <FloorFour accessPoints={AccessPoints} users={users} />
           </Route>
           <Route path="/floor3">
-            <FloorThree accessPoints={pos} users={users} />
+            <FloorThree accessPoints={AccessPoints} users={users} />
           </Route>
           <Route path="/floor5">
-            <FloorFive accessPoints={pos} users={users} />
+            <FloorFive accessPoints={AccessPoints} users={users} />
           </Route>
           <Route path="/manageUsers">
             <ManageUsers />

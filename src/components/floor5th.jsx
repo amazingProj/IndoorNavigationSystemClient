@@ -73,24 +73,23 @@ const FloorFive = (props) => {
 
     if (!editMode) {
       let image = new Image();
+      image.src = accessPointImage;
       image.addEventListener(
         "load",
         function () {
-          ctx.drawImage(
-            image,
-            xOffset + (7 + 4) * fracH,
-            offsetY + 8.7 * fracW
-          );
-          ctx.drawImage(
-            image,
-            xOffset + (21.7 + 4) * fracH,
-            offsetY + 2.3 * fracW
-          );
+          props.accessPoints.forEach((accessPoint) => {
+            if (accessPoint.floorLevel == "5") {
+              let x = accessPoint.x;
+              let y = accessPoint.y;
+              let posX = offsetX + x * fracH + 2 * fracH;
+              let posY = offsetY + y * fracW;
+              console.log(accessPoint);
+              ctx.drawImage(image, posX, posY);
+            }
+          });
         },
-        false
+        true
       );
-
-      image.src = accessPointImage;
     }
 
     for (let i = 0; i < 6; ++i) {
@@ -416,7 +415,7 @@ const FloorFive = (props) => {
       { x: 28.6 * fracH, y: 8.2 * fracW, x1: 28.6 * fracH, y1: 10.2 * fracW },
       fence
     );
-  }, []);
+  }, [props.accessPoints]);
 
   useEffect(() => {
     if (editMode) {
