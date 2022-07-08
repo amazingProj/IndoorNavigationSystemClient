@@ -19,7 +19,6 @@ const AccessPoints = (props) => {
             floor={accessPoint.floorLevel}
           />
         ))}
-      {props.new > 0 && <AccessPoint x="10" y="10" />}
     </div>
   );
 };

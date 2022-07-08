@@ -2,12 +2,13 @@ import Floor3 from "./floor3th";
 import React, { useState, useEffect, useRef } from "react";
 import Floor4 from "./floor4th";
 import Floor5 from "./floor5th";
-import Dialog from "./dialog";
+import Modal from "./addAccessPoint";
 
 const APs = (props) => {
   const [counter, setCounter] = useState(0);
   const [newAccessPoint, setNewAccessPoint] = useState(0);
   const [vis, setVis] = useState(false);
+  const [visC, setVisC] = useState(0);
   var [users, setUsers] = useState([]);
 
   const setCounterZero = () => {
@@ -21,33 +22,16 @@ const APs = (props) => {
   };
 
   const addNewAccessPoint = () => {
-    setNewAccessPoint(newAccessPoint + 1);
-    let newAccessPointInstance = {
-      key: { newAccessPoint },
-      bssid: "empty",
-      x: "10.5",
-      y: "10.5",
-      floorLevel: "0",
-    };
-
-    setUsers([...users, newAccessPointInstance]);
+    console.log("Clicked");
+    setVisC(visC + 1);
   };
 
-  const saveClicked = () => {
-    setVis(true);
-  };
   return (
     <div>
       <br />
       <br />
       <br />
       <ul className={"absolute bg-zinc-200 w-full px-8 inline-flex"}>
-        <li
-          onClick={saveClicked}
-          className="hover:bg-zinc-300 border-b-2 border-zinc-300 align-middle"
-        >
-          שמור
-        </li>
         <li
           onClick={addNewAccessPoint}
           className="hover:bg-zinc-300 border-b-2 border-zinc-300 align-middle"
@@ -97,7 +81,7 @@ const APs = (props) => {
             users={users}
           />
         ))}
-      <Dialog visibility={vis} />
+      <Modal visibility={visC} />
     </div>
   );
 };

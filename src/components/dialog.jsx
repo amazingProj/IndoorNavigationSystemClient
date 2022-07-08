@@ -2,11 +2,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 export default function Modal(props) {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(props.visibility);
 
   useEffect(() => {
     setShowModal(props.visibility);
   }, [props.visibility]);
+
   return (
     <>
       {showModal ? (
