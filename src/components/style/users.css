@@ -2,7 +2,7 @@
     font-size: 40px;
     min-height: 300px;
     width: 100%;
-    background: whitesmoke;
+    background: transparent;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -10,7 +10,8 @@
 }
 
 .item {
-    background:LightSkyBlue;
+    background:rgb(135, 248, 250);
+    border-radius: 25px;
 }
 
 .font {
