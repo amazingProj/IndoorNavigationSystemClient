@@ -49,22 +49,22 @@ const Navbar = () => {
               </div>
               <div className={!dropdown ? "hidden" : "absolute"}>
                 <div
-                  className="text-right origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  className="text-right origin-top-right absolute right-0 mt-2 w-38 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                   role="menu"
                   aria-orientation="vertical"
                   aria-labelledby="menu-button"
                   tabindex="-1"
                 >
                   <div className="py-1" role="none">
-                    <li className="hover:bg-zinc-300 mt-2">
-                      <Link to={"/floor3"}>קומה 3</Link>
-                    </li>
-                    <li className="hover:bg-zinc-300 mt-2">
-                      <Link to={"/floor4"}>קומה 4</Link>
-                    </li>
-                    <li className="hover:bg-zinc-300 mt-2">
-                      <Link to={"/floor5"}>קומה 5</Link>
-                    </li>
+                    <Link to={"floor3"}>
+                      <li className="hover:bg-zinc-300 mt-2">קומה 3</li>
+                    </Link>
+                    <Link to={"/floor4"}>
+                      <li className="hover:bg-zinc-300 mt-2">קומה 4</li>
+                    </Link>
+                    <Link to={"/floor5"}>
+                      <li className="hover:bg-zinc-300 mt-2">קומה 5</li>
+                    </Link>
                   </div>
                 </div>
               </div>

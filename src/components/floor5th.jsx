@@ -14,7 +14,7 @@ const FloorFive = (props) => {
   const fence = { color: "blue", width: 1 };
   const elavator = { color: "black", width: 1 };
   const dooradditional = { color: "black", width: 1 };
-  const font = 0.015 * window.innerWidth + "px Arial";
+  const font = 0.01 * window.innerWidth + "px Arial";
   const doorThickness = 1;
   let editMode = props.editMode || false;
 

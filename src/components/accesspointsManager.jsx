@@ -31,32 +31,38 @@ const APs = (props) => {
       <br />
       <br />
       <br />
-      <ul className={"absolute bg-zinc-200 w-full px-8 inline-flex"}>
-        <li
-          onClick={addNewAccessPoint}
-          className="hover:bg-zinc-300 border-b-2 border-zinc-300 align-middle"
-        >
-          +
-        </li>
-        <li
-          onClick={setCounterZero}
-          className="hover:bg-zinc-300 border-b-2 border-zinc-300 w-full align-middle"
-        >
-          קומה 3
-        </li>
-        <li
-          onClick={setCounterOne}
-          className="hover:bg-zinc-300 border-b-2 border-zinc-300 w-full align-middle"
-        >
-          קומה 4
-        </li>
-        <li
-          onClick={setCounterTwo}
-          className="hover:bg-zinc-300 border-b-2 border-zinc-300 w-full"
-        >
-          קומה 5
-        </li>
-      </ul>
+      <div>
+        <ul className={" bg-indigo-500 w-3/5 px-8 inline-flex mr-40"}>
+          <li className="text-center hover:bg-indigo-700 border-b-2 border-zinc-300 align-middle">
+            -
+          </li>
+          <li
+            onClick={addNewAccessPoint}
+            className="text-center hover:bg-indigo-700 border-b-2 border-zinc-300 align-middle"
+          >
+            +
+          </li>
+          <li
+            onClick={setCounterZero}
+            className="text-center hover:bg-indigo-700 border-b-2 border-zinc-300 w-full align-middle"
+          >
+            קומה 3
+          </li>
+          <li
+            onClick={setCounterOne}
+            className="text-center hover:bg-indigo-700 border-b-2 border-zinc-300 w-full align-middle"
+          >
+            קומה 4
+          </li>
+          <li
+            onClick={setCounterTwo}
+            className="text-center hover:bg-indigo-700 border-b-2 border-zinc-300 w-full"
+          >
+            קומה 5
+          </li>
+        </ul>
+      </div>
+
       {(counter === 0 && (
         <Floor3
           editMode="true"

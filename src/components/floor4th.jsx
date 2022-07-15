@@ -9,7 +9,7 @@ const FloorFour = (props) => {
   let ctx = null;
   const TableBackground = { backgroundColor: "#cd8500" };
   const boardBackground = { backgroundColor: "#C4CACD" };
-  const font = 0.015 * window.innerWidth + "px Arial";
+  const font = 0.01 * window.innerWidth + "px Arial";
   const door = { color: "black", width: 1 };
   const chairColor = { backgroundColor: "black" };
   const colorBorder = { color: "black", width: 1 };

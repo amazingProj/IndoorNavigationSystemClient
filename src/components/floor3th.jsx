@@ -3,7 +3,6 @@ import "./style/canvas.css";
 import accessPointImage from "./style/images/accessPoint.svg";
 import TrackedUsers from "./users";
 import AccessPoints from "./accesspoints";
-import AccessPoint from "./accesspoint";
 
 const FloorThree = (props) => {
   const canvas = useRef();
@@ -12,7 +11,7 @@ const FloorThree = (props) => {
   const offsetY = 0.01 * window.innerHeight;
   const colorBorder = { color: "black", width: 1 };
   const colorBorderThick = { color: "black", width: 1 };
-  const textFont = 0.015 * window.innerWidth + "px Arial";
+  const textFont = 0.01 * window.innerWidth + "px Arial";
   const textColor = "#00000F";
   const textAlign = "right";
   const width = window.innerHeight * 0.8;
@@ -26,6 +25,7 @@ const FloorThree = (props) => {
   const tableColor = { backgroundColor: "#cd8500" };
   const chairColor = { backgroundColor: "#000000" };
   let editMode = props.editMode || false;
+  var image = useRef();
 
   const drawFillRect = (info, style = {}) => {
     const { x, y, w, h } = info;
