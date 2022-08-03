@@ -139,14 +139,17 @@ const FloorThree = (props) => {
     ctx.font = textFont;
     ctx.fillStyle = textColor;
     ctx.textAlign = textAlign;
+    
     drawLine(
       { x: 9.5 * fracH, y: 0, x1: 9.5 * fracH, y1: 7.1 * fracW },
       colorBorder
     );
+    
     drawLine(
       { x: 0, y: 7.1 * fracW, x1: 2 * fracH, y1: 7.1 * fracW },
       colorBorder
     );
+    
     drawLine(
       { x: 3.6 * fracH, y: 7.1 * fracW, x1: 9.5 * fracH, y1: 7.1 * fracW },
       colorBorder

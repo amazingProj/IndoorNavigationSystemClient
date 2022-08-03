@@ -4,6 +4,7 @@
   "homepage": "https://amazingProj.github.io/",
   "private": true,
   "dependencies": {
+    "@ap.cx/react-fullpage": "^0.2.0",
     "@heroicons/react": "^1.0.6",
     "@material-tailwind/react": "^1.0.6",
     "@testing-library/jest-dom": "^5.16.2",

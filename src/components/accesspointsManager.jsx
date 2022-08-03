@@ -30,33 +30,32 @@ const APs = (props) => {
     <div>
       <br />
       <br />
-      <br />
       <div>
-        <ul className={" bg-indigo-500 w-3/5 px-8 inline-flex mr-40"}>
-          <li className="text-center hover:bg-indigo-700 border-b-2 border-zinc-300 align-middle">
+        <ul className={"h-10 bg-indigo-500 w-3/5 inline-flex mr-40 b-2"}>
+          <li className="text-center hover:bg-indigo-600 border-b-2 border-zinc-300 align-middle">
             -
           </li>
           <li
             onClick={addNewAccessPoint}
-            className="text-center hover:bg-indigo-700 border-b-2 border-zinc-300 align-middle"
+            className="text-center hover:bg-indigo-600 border-b-2 border-zinc-300 align-middle"
           >
             +
           </li>
           <li
             onClick={setCounterZero}
-            className="text-center hover:bg-indigo-700 border-b-2 border-zinc-300 w-full align-middle"
+            className="text-center hover:bg-indigo-600 border-b-2 border-zinc-300 w-full align-middle"
           >
             קומה 3
           </li>
           <li
             onClick={setCounterOne}
-            className="text-center hover:bg-indigo-700 border-b-2 border-zinc-300 w-full align-middle"
+            className="text-center hover:bg-indigo-600 border-b-2 border-zinc-300 w-full align-middle"
           >
             קומה 4
           </li>
           <li
             onClick={setCounterTwo}
-            className="text-center hover:bg-indigo-700 border-b-2 border-zinc-300 w-full"
+            className="text-center hover:bg-indigo-600 border-b-2 border-zinc-300 w-full"
           >
             קומה 5
           </li>
